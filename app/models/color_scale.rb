@@ -1,0 +1,2 @@
+class ColorScale < ApplicationRecord
+end

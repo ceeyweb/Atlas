@@ -1,0 +1,2 @@
+class Quintile < ApplicationRecord
+end
