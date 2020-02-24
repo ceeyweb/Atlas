@@ -1,4 +1,3 @@
-# rubocop:disable Rails/CreateTableWithTimestamps
 class CreateQuintiles < ActiveRecord::Migration[6.0]
   def change
     create_table :quintiles do |t|
@@ -12,4 +11,3 @@ class CreateQuintiles < ActiveRecord::Migration[6.0]
     add_index :quintiles, %i[name category_id], unique: true
   end
 end
-# rubocop:enable Rails/CreateTableWithTimestamps

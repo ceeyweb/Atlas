@@ -1,4 +1,3 @@
-# rubocop:disable Rails/CreateTableWithTimestamps
 class CreateRegions < ActiveRecord::Migration[6.0]
   def change
     create_table :regions do |t|
@@ -6,4 +5,3 @@ class CreateRegions < ActiveRecord::Migration[6.0]
     end
   end
 end
-# rubocop:enable Rails/CreateTableWithTimestamps

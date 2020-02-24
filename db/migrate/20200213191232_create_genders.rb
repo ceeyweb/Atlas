@@ -1,4 +1,3 @@
-# rubocop:disable Rails/CreateTableWithTimestamps
 class CreateGenders < ActiveRecord::Migration[6.0]
   def change
     create_table :genders do |t|
@@ -6,4 +5,3 @@ class CreateGenders < ActiveRecord::Migration[6.0]
     end
   end
 end
-# rubocop:enable Rails/CreateTableWithTimestamps

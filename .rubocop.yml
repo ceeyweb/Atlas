@@ -655,5 +655,9 @@ Rails/Validation:
   Enabled: false
 
 Rails/FilePath:
-  Description: 'identify usages of file path joining in `Rails.root.join` clause'
+  Description: 'Identify usages of file path joining in `Rails.root.join` clause'
   EnforcedStyle: arguments
+
+Rails/CreateTableWithTimestamps:
+  Description: 'Enforces use of timestamp columns in migrations'
+  Enabled: false
