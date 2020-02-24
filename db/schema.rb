@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_192257) do
+ActiveRecord::Schema.define(version: 2020_02_24_151545) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 2020_02_13_192257) do
     t.index ["description"], name: "index_genders_on_description", unique: true
   end
 
+  create_table "kpis_mobility_percentages", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.float "percentage", null: false
+    t.bigint "gender_id", null: false
+    t.bigint "region_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "quintile_id", null: false
+    t.index ["category_id"], name: "index_kpis_mobility_percentages_on_category_id"
+    t.index ["gender_id"], name: "index_kpis_mobility_percentages_on_gender_id"
+    t.index ["quintile_id"], name: "index_kpis_mobility_percentages_on_quintile_id"
+    t.index ["region_id"], name: "index_kpis_mobility_percentages_on_region_id"
+  end
+
   create_table "quintiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.string "name", null: false
@@ -47,6 +59,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_192257) do
     t.index ["description"], name: "index_regions_on_description", unique: true
   end
 
+  add_foreign_key "kpis_mobility_percentages", "categories"
+  add_foreign_key "kpis_mobility_percentages", "genders"
+  add_foreign_key "kpis_mobility_percentages", "quintiles"
+  add_foreign_key "kpis_mobility_percentages", "regions"
   add_foreign_key "quintiles", "categories"
   add_foreign_key "quintiles", "color_scales"
 end
