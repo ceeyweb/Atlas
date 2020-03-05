@@ -6,24 +6,32 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     default-mysql-client \
     tzdata \
     nodejs \
-    yarn \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/tmp/*
+
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y yarn
 
 # Set environement variables
 ENV RAILS_ENV development
 ENV RAILS_SERVE_STATIC_FILES false
 
-# Create app directory
-RUN mkdir -p /atlas
-WORKDIR /atlas
-
 # Install gems
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile* /tmp/
+WORKDIR /tmp
 RUN gem install bundler && bundle install --retry 5
 
-# Copy app code
-COPY . ./
+# Add app code
+ENV app /atlas
+RUN mkdir $app
+WORKDIR $app
+COPY . $app
+
+# Install dependencies
+RUN yarn install
 
 # Add container startup commands file
 COPY .docker/development/docker-entrypoint.sh /usr/bin/
