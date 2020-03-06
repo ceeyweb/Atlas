@@ -1,0 +1,51 @@
+$default-font: "Lato";
+$header-font: "Montserrat";
+
+$green: rgb(20, 88, 97);
+$orange: rgb(245, 133, 49);
+$gray: rgb(205, 203, 202);
+$gray-light: rgb(247, 247, 248);
+$gray-dark: rgb(149, 150, 150);
+
+body {
+  font-family: $default-font;
+}
+
+.sidebar {
+  background-color: $gray-light;
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  padding: 2rem 1rem 3rem;
+}
+
+.menu {
+  @extend .nav;
+  @extend .flex-column;
+
+  font-family: $header-font;
+  font-weight: 500;
+}
+
+.menu__item {
+  margin-bottom: 1.5rem;
+}
+
+.menu__link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: $gray-dark;
+
+  &:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+}

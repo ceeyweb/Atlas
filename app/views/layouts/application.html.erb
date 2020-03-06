@@ -2,14 +2,41 @@
 <html>
   <head>
     <title>Atlas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" />
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="sidebar">
+      <div class="logo">
+        <%= image_tag("logo-ceey-web.png", alt: "Centro de Estudios Espinosa Yglesias", height: 200) %>
+      </div>
+
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="#" class="menu__link">Introducción</a>
+        </li>
+        <li class="menu__item">
+          <a href="<%= social_mobility_path %>" class="menu__link">Movilidad Social</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Introducción</a>
+        </li>
+      </ul>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>
