@@ -15,12 +15,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'main' %>
   </head>
 
   <body>
-    <div class="sidebar">
-      <div class="logo">
-        <%= image_tag("logo-ceey-web.png", alt: "Centro de Estudios Espinosa Yglesias", height: 200) %>
+    <section class="sidebar">
+      <div class="sidebar__logo">
+        <%= image_tag("logo-main.png", alt: "Centro de Estudios Espinosa Yglesias", height: 200) %>
       </div>
 
       <ul class="menu">
@@ -34,9 +35,34 @@
           <a href="#" class="menu__link">Introducción</a>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <%= yield %>
+    <section class="content" id="content">
+      <%= yield %>
+    </section>
 
+    <section class="footer" id="footer">
+      <div class="row">
+        <div class="offset-1 col-5 text-center">
+          <%= image_tag("logo-white.png", height: 60) %>
+        </div>
+        <div class="col-5">
+          <p id="test">CONTACTO</p>
+          <ul class="list-unstyled">
+            <li>Abasolo 152, Del Carmen, Coyoacán</li>
+            <li>C.P. 04100. Ciudad de México</li>
+            <li>Teléfonos: +52 (55) 56625447 / 56622370 / 56608031 / 56608051</li>
+            <li>
+              Email: <a href="mailto:contacto@ceey.org.mx">contacto@ceey.org.mx</a> /
+              <a href="mailto:bolsatrabajo@ceey.org.mx">bolsatrabajo@ceey.org.mx</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__privacy">
+        <%= link_to "Aviso de Privacidad", "#" %> © CEEY @2020
+      </div>
+    </section>
   </body>
 </html>

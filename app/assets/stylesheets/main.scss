@@ -1,11 +1,16 @@
+// fonts
 $default-font: "Lato";
 $header-font: "Montserrat";
 
+// colors
 $green: rgb(20, 88, 97);
 $orange: rgb(245, 133, 49);
 $gray: rgb(205, 203, 202);
 $gray-light: rgb(247, 247, 248);
 $gray-dark: rgb(149, 150, 150);
+
+// other values
+$sidebar-width: 17rem;
 
 body {
   font-family: $default-font;
@@ -13,17 +18,17 @@ body {
 
 .sidebar {
   background-color: $gray-light;
-  min-width: 17rem;
-  width: 17rem;
+  min-width: $sidebar-width;
+  width: $sidebar-width;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
-.logo {
+.sidebar__logo {
   padding: 2rem 1rem 3rem;
 }
 
@@ -47,5 +52,43 @@ body {
   &:hover {
     color: $orange;
     text-decoration: none;
+  }
+}
+
+.content {
+  margin-left: $sidebar-width;
+}
+
+.footer {
+  font-size: .7em;
+  margin-left: $sidebar-width;
+  background-color: $green;
+  color: white;
+  padding-top: 1.3rem;
+  padding-bottom: 1rem;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.footer__privacy {
+  text-align: center;
+  color: $gray-dark;
+  margin-top: .7rem;
+
+  a {
+    padding-right: 1.5rem;
+    color: $gray-dark;
+
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+    }
   }
 }
