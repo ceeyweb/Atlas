@@ -4,6 +4,7 @@ $header-font: "Montserrat";
 
 // colors
 $green: rgb(20, 88, 97);
+$green-dark: rgb(0, 35, 44);
 $orange: rgb(245, 133, 49);
 $gray: rgb(205, 203, 202);
 $gray-light: rgb(247, 247, 248);
@@ -55,8 +56,34 @@ body {
   }
 }
 
-.content {
+.header {
   margin-left: $sidebar-width;
+  text-align: right;
+  background-color: $orange;
+  padding: .3rem 1.5rem;
+
+  span {
+    color: white;
+    font-family: $header-font;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.content {
+  padding: .7rem 1rem;
+  margin-left: $sidebar-width;
+}
+
+.content__title {
+  color: $green-dark;
+  font-family: $header-font;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.content__body {
+  margin-top: .7rem;
 }
 
 .footer {

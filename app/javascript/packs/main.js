@@ -1,5 +1,7 @@
 $(function() {
-  let footerHeight = $("#footer").height();
+  let footerHeight = $("#footer").outerHeight();
+  let headerHeight = $("#header").outerHeight();
+  let totalHeight = footerHeight + headerHeight;
 
-  $("#content").css("min-height", "calc(100vh - " + footerHeight + "px)");
+  $("#content").css("min-height", "calc(100vh - " + totalHeight + "px)");
 });

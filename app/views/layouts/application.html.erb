@@ -37,8 +37,13 @@
       </ul>
     </section>
 
+    <section class="header" id="header">
+      <span>Atlas de Movilidad Social</span>
+    </section>
+
     <section class="content" id="content">
-      <%= yield %>
+      <div class="content__title"><%= yield(:title) %></div>
+      <div class="content__body"><%= yield %></div>
     </section>
 
     <section class="footer" id="footer">
