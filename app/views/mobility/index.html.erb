@@ -1,0 +1,54 @@
+<% provide(:title, "Movilidad Social") %>
+
+<div class="row mobility-menu">
+  <% Category.all.each do |category| %>
+    <div class="col-3 mobility-dropdown">
+      <button class="mobility-dropwdown__button"><%= category.description %></button>
+      <div class="mobility-dropdown__content">
+        <% category.quintiles.each do |quintile| %>
+          <%= link_to quintile.name, mobility_path(slug: quintile.slug), remote: true %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="row mobility-content">
+  <div class="col-6">
+    <div class="mobility-map">
+      <div>Norte: </div>
+      <div>Norte-Occidente: </div>
+      <div>Centro-Norte: </div>
+      <div>Centro: </div>
+      <div>Sur: </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mobility-quintile">
+      <div class="mobility-quintile__title">Movilidad intergeneracional en salud - Persistencia quintil I
+      </div>
+      <div class="mobility-quintile__description">Porcentaje de personas que al igual que sus padres permacen al quintil más bajo de salud.
+      </div>
+      <div class="mobility-quintile__kpis">
+        <ul>
+          <li>
+            <span class="mobility-quintile__kpi-group">Nacional</span>
+            <span class="mobility-quintile__kpi-value mobility-quintile__kpi-value--q6">55.5%</span>
+          </li>
+          <li>
+            <span class="mobility-quintile__kpi-group">Mujeres</span>
+            <span class="mobility-quintile__kpi-value mobility-quintile__kpi-value--q3">42.4%</span>
+          </li>
+          <li>
+            <span class="mobility-quintile__kpi-group">Hombres</span>
+            <span class="mobility-quintile__kpi-value mobility-quintile__kpi-value--q11">70.9%</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mobility-quintile__color-scale">
+        <span><30</span>
+        <span>>70</span>
+      </div>
+    </div>
+  </div>
+</div>
