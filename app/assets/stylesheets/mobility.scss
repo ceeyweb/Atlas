@@ -1,4 +1,5 @@
 .mobility-menu {}
+
 .mobility-content {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -52,6 +53,7 @@
 }
 
 .mobility-map {}
+
 .mobility-quintile {
   background-color: #fff7c0;
   border: 1px solid $green;
@@ -117,11 +119,18 @@ $scale-colors:
   color: white;
   letter-spacing: 1px;
   padding: .2rem .5rem;
-  background-image: linear-gradient(to right, $scale-colors);
 
   span {
     &:last-child {
       float: right;
     }
   }
+}
+
+.mobility-quintile__color-scale--gradient-right {
+  background-image: linear-gradient(to right, $scale-colors);
+}
+
+.mobility-quintile__color-scale--gradient-left {
+  background-image: linear-gradient(to left, $scale-colors);
 }

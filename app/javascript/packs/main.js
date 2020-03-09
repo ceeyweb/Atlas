@@ -4,4 +4,4 @@ $(document).on("turbolinks:load", function() {
   let totalHeight = footerHeight + headerHeight;
 
   $("#content").css("min-height", "calc(100vh - " + totalHeight + "px)");
-})
+});
