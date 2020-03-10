@@ -30,38 +30,38 @@ class MobilityQuintile {
     this.quintileDescription.html(description);
   }
 
-  updateRegionKpis(regions) {
+  updateRegionKpis(kpis) {
     let html = "";
 
-    $.each(regions, function(i, region) {
+    $.each(kpis, function(i, kpi) {
       html += "<div>";
-      html += region["description"] + ": " + region["value"];
+      html += kpi["region"] + ": " + kpi["value"];
       html += "</div>";
     }.bind(this));
 
     this.kpisRegion.html(html);
   };
 
-  updateGenderKpis(genders) {
+  updateGenderKpis(kpis) {
     let html = "";
 
-    $.each(genders, function(i, gender) {
+    $.each(kpis, function(i, kpi) {
       html += "<li>";
       html += "<span class='mobility-quintile__kpi-group'>";
 
-      if(gender["url"]) {
-        html += "<a href='" + gender["url"] + "' data-remote='true'";
+      if(kpi["url"]) {
+        html += "<a href='" + kpi["url"] + "' data-remote='true'";
         html += "data-behavior='mobility-quintile-selector'>";
-        html += gender["description"];
+        html += kpi["gender"];
         html += "</a>";
       } else {
-        html += gender["description"];
+        html += kpi["gender"];
       }
 
       html += "</span>";
       html += "<span class='mobility-quintile__kpi-value";
-      html += " mobility-quintile__kpi-value--q" + gender["color_index"] + "'>";
-      html += gender["value"] + "</span>";
+      html += " mobility-quintile__kpi-value--q" + kpi["color_index"] + "'>";
+      html += kpi["value"] + "</span>";
       html += "</li>";
     }.bind(this));
 
@@ -72,8 +72,8 @@ class MobilityQuintile {
     const klass = "mobility-quintile__color-scale--gradient-" + colorScale["direction"];
     let html = "";
 
-    html += "<span> <" + colorScale["min"] + "</span>";
-    html += "<span> >" + colorScale["max"] + "</span>";
+    html += "<span> <" + colorScale["minimum"] + "</span>";
+    html += "<span> >" + colorScale["maximum"] + "</span>";
 
     this.kpisColorScale.removeClass();
     this.kpisColorScale.addClass("mobility-quintile__color-scale " + klass);

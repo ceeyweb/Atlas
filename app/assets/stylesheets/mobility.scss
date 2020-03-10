@@ -95,6 +95,9 @@
   font-weight: 600;
 }
 
+// if `$scale-colors` list is modified, `SIZE` constant in `ColorScale` model
+// (app/models/color_scale.rb) must be updated to match `$scale-colors`
+// list size.
 $scale-colors:
   #28a745,
   #5baf35,
