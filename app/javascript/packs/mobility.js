@@ -1,17 +1,21 @@
 class MobilityQuintile {
   constructor() {
-    this.quintileSelectors   = $("[data-behavior='mobility-quintile-selector']");
+    // static attributes
     this.quintileTitle       = $("[data-behavior='mobility-quintile-title']");
     this.quintileDescription = $("[data-behavior='mobility-quintile-description']");
     this.kpisRegion          = $("[data-behavior='mobility-kpis-region']");
     this.kpisGender          = $("[data-behavior='mobility-kpis-gender']");
     this.kpisColorScale      = $("[data-behavior='mobility-kpis-color-scale']");
 
+    // dynamic attributes (references only)
+    this.quintileSelectors   = "[data-behavior='mobility-quintile-selector']";
+
+    // hanlders
     this.initEventHandlers();
   }
 
   initEventHandlers() {
-    this.quintileSelectors.on("ajax:success", function(event) {
+    $(document).on("ajax:success", this.quintileSelectors, function(event) {
       const [data, status, xhr] = event.detail;
 
       this.updateQuintile(data["title"], data["description"]);
@@ -44,9 +48,19 @@ class MobilityQuintile {
     $.each(genders, function(i, gender) {
       html += "<li>";
       html += "<span class='mobility-quintile__kpi-group'>";
-      html += gender["description"];
+
+      if(gender["url"]) {
+        html += "<a href='" + gender["url"] + "' data-remote='true'";
+        html += "data-behavior='mobility-quintile-selector'>";
+        html += gender["description"];
+        html += "</a>";
+      } else {
+        html += gender["description"];
+      }
+
       html += "</span>";
-      html += "<span class='mobility-quintile__kpi-value mobility-quintile__kpi-value--q6'>";
+      html += "<span class='mobility-quintile__kpi-value";
+      html += " mobility-quintile__kpi-value--q" + gender["color_index"] + "'>";
       html += gender["value"] + "</span>";
       html += "</li>";
     }.bind(this));
@@ -61,7 +75,8 @@ class MobilityQuintile {
     html += "<span> <" + colorScale["min"] + "</span>";
     html += "<span> >" + colorScale["max"] + "</span>";
 
-    this.kpisColorScale.addClass(klass);
+    this.kpisColorScale.removeClass();
+    this.kpisColorScale.addClass("mobility-quintile__color-scale " + klass);
     this.kpisColorScale.html(html);
   }
 }

@@ -7,7 +7,7 @@ end
 
 # Genders
 Gender.create_or_find_by(id: 0) do |gender|
-  gender.description = "Total"
+  gender.description = "Nacional"
 end
 
 %w[Mujer Hombre].each do |gender|
@@ -16,7 +16,7 @@ end
 
 # Regions
 Region.create_or_find_by(id: 0) do |gender|
-  gender.description = "Nacional"
+  gender.description = "Total"
 end
 
 ["Norte", "Norte Occidente", "Centro Norte", "Centro", "Sur"].each do |region|
