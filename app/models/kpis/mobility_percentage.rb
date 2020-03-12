@@ -27,8 +27,8 @@ module Kpis
     def to_h(except: {})
       {
         gender: gender.description,
-        region: region.description,
-        value: percentage,
+        region: region.description.downcase.gsub(" ", "-"),
+        value: "%.2f" % percentage,
         color_index: color_scale_index + 1,
         url: url,
       }.except(except)

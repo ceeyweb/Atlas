@@ -449,6 +449,10 @@ Layout/InitialIndentation:
     Checks the indentation of the first non-blank non-comment line in a file.
   Enabled: false
 
+Layout/FormatStringToken:
+  Description: Use a consistent style for named format string tokens.
+  Enabled: false
+
 # Lint
 
 Lint/Debugger:

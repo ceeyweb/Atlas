@@ -1,86 +1,148 @@
-class MobilityQuintile {
-  constructor() {
-    // static attributes
-    this.quintileTitle       = $("[data-behavior='mobility-quintile-title']");
-    this.quintileDescription = $("[data-behavior='mobility-quintile-description']");
-    this.kpisRegion          = $("[data-behavior='mobility-kpis-region']");
-    this.kpisGender          = $("[data-behavior='mobility-kpis-gender']");
-    this.kpisColorScale      = $("[data-behavior='mobility-kpis-color-scale']");
-
-    // dynamic attributes (references only)
-    this.quintileSelectors   = "[data-behavior='mobility-quintile-selector']";
-
-    // hanlders
-    this.initEventHandlers();
-  }
-
-  initEventHandlers() {
-    $(document).on("ajax:success", this.quintileSelectors, function(event) {
-      const [data, status, xhr] = event.detail;
-
-      this.updateQuintile(data["title"], data["description"]);
-      this.updateRegionKpis(data["regions"]);
-      this.updateGenderKpis(data["genders"]);
-      this.updateKpisColorScale(data["color_scale"]);
-    }.bind(this));
-  }
-
-  updateQuintile(title, description) {
-    this.quintileTitle.html(title);
-    this.quintileDescription.html(description);
-  }
-
-  updateRegionKpis(kpis) {
-    let html = "";
-
-    $.each(kpis, function(i, kpi) {
-      html += "<div>";
-      html += kpi["region"] + ": " + kpi["value"];
-      html += "</div>";
-    }.bind(this));
-
-    this.kpisRegion.html(html);
-  };
-
-  updateGenderKpis(kpis) {
-    let html = "";
-
-    $.each(kpis, function(i, kpi) {
-      html += "<li>";
-      html += "<span class='mobility-quintile__kpi-group'>";
-
-      if(kpi["url"]) {
-        html += "<a href='" + kpi["url"] + "' data-remote='true'";
-        html += "data-behavior='mobility-quintile-selector'>";
-        html += kpi["gender"];
-        html += "</a>";
-      } else {
-        html += kpi["gender"];
-      }
-
-      html += "</span>";
-      html += "<span class='mobility-quintile__kpi-value";
-      html += " mobility-quintile__kpi-value--q" + kpi["color_index"] + "'>";
-      html += kpi["value"] + "</span>";
-      html += "</li>";
-    }.bind(this));
-
-    this.kpisGender.html(html);
-  };
-
-  updateKpisColorScale(colorScale) {
-    const klass = "mobility-quintile__color-scale--gradient-" + colorScale["direction"];
-    let html = "";
-
-    html += "<span> <" + colorScale["minimum"] + "</span>";
-    html += "<span> >" + colorScale["maximum"] + "</span>";
-
-    this.kpisColorScale.removeClass();
-    this.kpisColorScale.addClass("mobility-quintile__color-scale " + klass);
-    this.kpisColorScale.html(html);
-  }
-}
+import MobilityQuintile from "../mobility/quintile";
+import { mapael } from "jquery-mapael";
+import "../mobility/mexico.min";
 
 $(document).on("turbolinks:load", function() {
   new MobilityQuintile();
+
+  $(".mobility-map").mapael({
+    map: {
+      name: "mexico",
+      cssClass: "mobility-map__map",
+      defaultArea: {
+        attrs: {
+          stroke: "#ffffff",
+          "stroke-width": 1,
+        },
+      },
+      defaultPlot: {
+        type: "circle",
+        size: 30,
+        attrs : {
+          stroke: "#ffffff",
+          "stroke-width": 1,
+          opacity : 0.7,
+          fill: "#ff0000",
+        },
+        attrsHover: {
+          "stroke-width": 4,
+          opacity : 1,
+        },
+        text: {
+          attrs: {
+            "font-size": 40,
+            fill: "#ffffff",
+          },
+          attrsHover: { fill: "#ffffff" },
+        },
+      },
+    },
+    plots: {
+      "norte": {
+        x: 740,
+        y: 360,
+        text: { content: "-" },
+      },
+      "norte-occidente": {
+        x: 850,
+        y: 650,
+        text: { content: "-" },
+      },
+      "centro-norte": {
+        x: 950,
+        y: 900,
+        text: {
+          content: "-",
+          position: "bottom",
+          margin: 25,
+        },
+      },
+      "centro": {
+        x: 1240,
+        y: 920,
+        text: {
+          content: "-",
+          position: "bottom",
+          margin: 25,
+        },
+      },
+      "sur": {
+        x: 1350,
+        y: 1120,
+        text: { content: "-" },
+      },
+    },
+    legend: {
+      area: {
+        cssClass: "mobility-map__legend",
+        slices: [
+          {
+            sliceValue: "norte",
+            attrs: { fill: "#145861" },
+            attrsHover: { fill: "#145861" },
+            label: "Norte",
+          },
+          {
+            sliceValue: "norte-occidente",
+            attrs: { fill: "#41939c" },
+            attrsHover: { fill: "#41939c" },
+            label: "Norte-Occidente",
+          },
+          {
+            sliceValue: "centro-norte",
+            attrs: { fill: "#959696" },
+            attrsHover: { fill: "#959696" },
+            label: "Centro-Norte",
+          },
+          {
+            sliceValue: "centro",
+            attrs: { fill: "#cdcbca" },
+            attrsHover: { fill: "#cdcbca" },
+            label: "Centro",
+          },
+          {
+            sliceValue: "sur",
+            attrs: { fill: "#f58531" },
+            attrsHover: { fill: "#f58531" },
+            label: "Sur",
+          },
+        ]
+      },
+    },
+    areas: {
+      "baja california": { value: "norte" },
+      "sonora": { value: "norte" },
+      "chihuahua": { value: "norte" },
+      "coahuila": { value: "norte" },
+      "nuevo leon": { value: "norte" },
+      "tamaulipas": { value: "norte" },
+      "baja california sur": { value: "norte-occidente" },
+      "sinaloa": { value: "norte-occidente" },
+      "durango": { value: "norte-occidente" },
+      "zacatecas": { value: "norte-occidente" },
+      "nayarit": { value: "norte-occidente" },
+      "san luis potosi": { value: "centro-norte" },
+      "aguascalientes": { value: "centro-norte" },
+      "jalisco": { value: "centro-norte" },
+      "colima": { value: "centro-norte" },
+      "michoacan": { value: "centro-norte" },
+      "tlaxcala": { value: "centro-norte" },
+      "guanajuato": { value: "centro" },
+      "queretaro": { value: "centro" },
+      "hidalgo": { value: "centro" },
+      "estado de mexico": { value: "centro" },
+      "ciudad de mexico": { value: "centro" },
+      "morelia": { value: "centro" },
+      "tlaxcala": { value: "centro" },
+      "puebla": { value: "centro" },
+      "veracruz": { value: "sur" },
+      "guerrero": { value: "sur" },
+      "oaxaca": { value: "sur" },
+      "tabasco": { value: "sur" },
+      "chiapas": { value: "sur" },
+      "campeche": { value: "sur" },
+      "yucatan": { value: "sur" },
+      "quintana roo": { value: "sur" },
+    },
+  });
 });
