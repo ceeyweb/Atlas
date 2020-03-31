@@ -51,5 +51,3 @@ test:
 production:
   <<: *default
   database: atlas_production
-  username: atlas
-  password: <%= ENV['ATLAS_DATABASE_PASSWORD'] %>
