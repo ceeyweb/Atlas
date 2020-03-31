@@ -99,31 +99,6 @@
   font-weight: 600;
 }
 
-// if `$scale-colors` list is modified, `SIZE` constant in `ColorScale` model
-// (app/models/color_scale.rb) must be updated to match `$scale-colors`
-// list size.
-$scale-colors:
-  #28a745,
-  #5baf35,
-  #83b624,
-  #a8bb10,
-  #cdbf00,
-  #dfb500,
-  #f0aa00,
-  #ff9e17,
-  #fc8425,
-  #f56a31,
-  #ea503c,
-  #dc3545;
-
-@each $color in $scale-colors {
-  $i: index($scale-colors, $color);
-
-  .mobility-quintile__kpi-value--q#{$i} {
-    color: $color;
-  }
-}
-
 .mobility-quintile__color-scale {
   font-size: .8rem;
   color: white;
@@ -135,12 +110,4 @@ $scale-colors:
       float: right;
     }
   }
-}
-
-.mobility-quintile__color-scale--gradient-right {
-  background-image: linear-gradient(to right, $scale-colors);
-}
-
-.mobility-quintile__color-scale--gradient-left {
-  background-image: linear-gradient(to left, $scale-colors);
 }

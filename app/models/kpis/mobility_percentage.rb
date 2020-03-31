@@ -11,10 +11,6 @@ module Kpis
     scope :genders, ->         { where(region_id: Region::TOTAL_ID) }
     scope :gender,  ->(gender) { where(gender_id: gender) }
 
-    def color_scale_index
-      color_scale.range_index_for(percentage)
-    end
-
     def url
       return unless gender_by_region_available?
 
@@ -29,7 +25,7 @@ module Kpis
         gender: gender.description,
         region: region.description.downcase.gsub(" ", "-"),
         value: "%.2f" % percentage,
-        color_index: color_scale_index + 1,
+        color: color_scale.color_for(percentage),
         url: url,
       }.except(except)
     end

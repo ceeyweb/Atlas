@@ -21,8 +21,7 @@ $(document).on("turbolinks:load", function() {
         attrs : {
           stroke: "#ffffff",
           "stroke-width": 1,
-          opacity : 0.7,
-          fill: "#ff0000",
+          opacity : 0.9,
         },
         attrsHover: {
           "stroke-width": 4,
@@ -144,5 +143,9 @@ $(document).on("turbolinks:load", function() {
       "yucatan": { value: "sur" },
       "quintana roo": { value: "sur" },
     },
+  });
+
+  $("path, rect, text").on('mouseover mouseenter mouseleave mouseup mousedown', function() {
+    return false
   });
 });

@@ -12,7 +12,7 @@ class Quintile < ApplicationRecord
 
   def kpis_by_region(gender_id = 0)
     kpis.regions.gender(gender_id).map do |kpi|
-      kpi.to_h(except: %i[gender color_index url])
+      kpi.to_h(except: %i[gender url])
     end
   end
 
