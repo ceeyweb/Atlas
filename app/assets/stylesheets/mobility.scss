@@ -54,7 +54,11 @@
 
 .mobility-map__map {}
 
-.mobility-map__legend {}
+.mobility-map__legend {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
 
 .mobility-quintile {
   background-color: #fff7c0;
