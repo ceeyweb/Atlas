@@ -1,4 +1,9 @@
-.mobility-menu {}
+.mobility-menu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
 
 .mobility-content {
   margin-top: 1.5rem;
@@ -12,6 +17,7 @@
 
   &:hover {
     .mobility-dropdown__content {
+      margin-left: 2rem;
       display: block;
     }
 
@@ -23,11 +29,18 @@
 }
 
 .mobility-dropwdown__button {
-  background-color: $gray-light;
-  color: $green;
+  margin-left: 2rem;
+  background-color: $green;
+  color: white;
   padding: .5rem;
   font-size: 1rem;
   border: none;
+  width: 13rem;
+  margin-left: 2rem;
+
+  &.mobility-dropwdown__button--active{
+    background-color: $orange;
+  }
 }
 
 .mobility-dropdown__content {
@@ -50,9 +63,16 @@
   }
 }
 
-.mobility-map {}
+.mobility-category { }
 
-.mobility-map__map {}
+.mobility-category__description{
+  padding: 2rem;
+
+  span {
+    font-weight: 600;
+    color: $green-dark;
+  }
+}
 
 .mobility-map__legend {
   position: absolute;

@@ -10,6 +10,7 @@ export default class MobilityQuintile {
     }
 
     // static attributes
+    this.categoryDescription = $("[data-behavior='mobility-category-description']");
     this.quintileTitle       = $("[data-behavior='mobility-quintile-title']");
     this.quintileDescription = $("[data-behavior='mobility-quintile-description']");
     this.kpisRegion          = $("[data-behavior='mobility-kpis-region']");
@@ -18,8 +19,10 @@ export default class MobilityQuintile {
 
     // dynamic attributes (references only)
     this.quintileSelectors   = "[data-behavior='mobility-quintile-selector']";
+    this.categoryButtons     = "[data-behavior='mobility-category-button']";
 
     // hanlders
+    this.initActiveCategoryHandler();
     this.initEventHandlers();
   }
 
@@ -27,11 +30,32 @@ export default class MobilityQuintile {
     $(document).on("ajax:success", this.quintileSelectors, function(event) {
       const [data, status, xhr] = event.detail;
 
+      this.updateHeader(data.category.title, data.category.description);
       this.updateQuintile(data["title"], data["description"]);
       this.updateRegionKpis(data["regions"]);
       this.updateGenderKpis(data["genders"]);
       this.updateKpisColorScale(data["color_scale"]);
     }.bind(this));
+  }
+
+  initActiveCategoryHandler(){
+    $(this.quintileSelectors).click(function (event) {
+      this.cleanUpActiveButtons();
+      $(event.target).parents('.mobility-dropdown').children('button')
+                     .addClass('mobility-dropwdown__button--active');
+    }.bind(this));
+  }
+
+  cleanUpActiveButtons() {
+    let activeButtons = $(this.categoryButtons);
+
+    if (activeButtons !== 'undefined'){
+      activeButtons.removeClass('mobility-dropwdown__button--active');
+    }
+  }
+
+  updateHeader(title, description){
+    this.categoryDescription.html(`<span>${title}: </span> ${description}`);
   }
 
   updateQuintile(title, description) {

@@ -26,12 +26,29 @@ end
 # Categories
 categories = {}
 
-%w[salud educación ocupacional socioeconomica].each do |text|
-  slug = I18n.transliterate(text)
-
-  categories[slug] = Category.create_or_find_by!(slug: slug) do |category|
-    category.description = "Movilidad intergeneracional en #{slug}"
-  end
+[
+  {
+    slug: 'socioeconomica',
+    title: 'SOCIOECONOMICA',
+    description: 'Descripcion...'
+  },
+  {
+    slug: 'educacion',
+    title: 'EDUCACION',
+    description: 'Descripcion...'
+  },
+  {
+    slug: 'salud',
+    title: 'SALUD',
+    description: 'Estado en el que un ser u organismo vivo no tiene ninguna lesion ni padece ninguna efermedad y ejerce con normalidad todas sus funciones',
+  },
+  {
+    slug: 'ocupacional',
+    title: 'OCUPACION',
+    description: 'Descripcion...'
+  },
+].each do |category|
+  categories[category[:slug]] = Category.find_or_create_by!(category)
 end
 
 # Quintiles & Color scales

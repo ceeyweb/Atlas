@@ -62,16 +62,23 @@ body {
 }
 
 .header {
+  height: 14rem;
   margin-left: $sidebar-width;
-  text-align: right;
-  background-color: $orange;
-  padding: .3rem 1.5rem;
+  background-color: $green;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
 
-  span {
+
+  h1 {
     color: white;
     font-family: $header-font;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
     font-weight: 500;
+
+  }
+  span {
+    color: $orange;
   }
 }
 
@@ -81,10 +88,13 @@ body {
 }
 
 .content__title {
+  padding: 1.5rem 0;
+  margin-left: 2rem;
   color: $green-dark;
   font-family: $header-font;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 600;
+  letter-spacing: -.05rem;
 }
 
 .content__body {

@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_151545) do
+ActiveRecord::Schema.define(version: 2020_05_21_032059) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.string "description", null: false
+    t.string "title"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 

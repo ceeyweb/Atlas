@@ -1,9 +1,9 @@
-<% provide(:title, "Movilidad Social") %>
+<% provide(:title, "MOVILIDAD SOCIAL INTERGENERACIONAL EN:") %>
 
-<div class="row mobility-menu">
+<div class="mobility-menu">
   <% Category.all.each do |category| %>
-    <div class="col-3 mobility-dropdown">
-      <button class="mobility-dropwdown__button"><%= category.description %></button>
+    <div class="mobility-dropdown">
+      <button class="mobility-dropwdown__button" data-behavior="mobility-category-button"><%= category.title %></button>
       <div class="mobility-dropdown__content">
         <% category.quintiles.each do |quintile| %>
           <%= link_to quintile.name, mobility_path(slug: quintile.slug),
@@ -12,6 +12,11 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="mobility-category">
+  <div class="mobility-category__description" data-behavior="mobility-category-description">
+  </div>
 </div>
 
 <div class="row mobility-content">

@@ -23,6 +23,10 @@ class Quintile < ApplicationRecord
       title: name,
       description: description,
       color_scale: color_scale.to_h,
+      category: {
+        title: category.title,
+        description: category.description
+      }
     }
   end
 end
