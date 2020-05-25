@@ -1,3 +1,10 @@
+// Region colors
+$norte: rgb(20, 88, 97);
+$norte-occidente: rgb(65, 147, 156);
+$centro-norte: rgb(149, 150, 150);
+$centro: rgb(205, 203, 202);
+$sur: rgb(245, 133, 49);
+
 .mobility-menu {
   padding: 0;
   margin: 0;
@@ -9,6 +16,7 @@
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   color: $green-dark;
+  display: flex;
 }
 
 .mobility-dropdown {
@@ -81,8 +89,6 @@
 }
 
 .mobility-quintile {
-  background-color: #e8f9ff;
-  border: 1px solid $green;
   padding: 1rem;
 }
 
@@ -133,5 +139,65 @@
     &:last-child {
       float: right;
     }
+  }
+}
+
+.map-container {
+  padding: 1rem;
+  width: 40rem;
+  height: 20rem;
+}
+
+.legends-container {
+  background-color: $gray-light;
+  margin-left: 2rem;
+  width: 17rem;
+}
+
+.mobility-regions {
+  background-color: white;
+  margin: 0 1.5rem;
+  padding: 2rem .5rem;
+}
+
+.mobility-region {
+  display: flex;
+  align-items: center;
+  padding: .3rem;
+}
+
+.mobility-region__color {
+  height: 1.4rem;
+  width: 1.8rem;
+  margin-right: .5rem;
+
+  &.norte {
+    background-color: $norte;
+  }
+  &.norte-occidente {
+    background-color: $norte-occidente;
+  }
+  &.centro-norte {
+    background-color: $centro-norte;
+  }
+  &.centro {
+    background-color: $centro;
+  }
+  &.sur {
+    background-color: $sur;
+  }
+}
+
+.mobility-region__title {
+  font-size: .9rem;
+}
+
+.mobility-notes {
+  padding: 1rem;
+  font-size: .7rem;
+
+  p {
+    text-align: justify;
+    margin-bottom: 0;
   }
 }
