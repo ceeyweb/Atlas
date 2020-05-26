@@ -24,7 +24,7 @@ module Kpis
       {
         gender: gender.description,
         region: region.description.downcase.gsub(" ", "-"),
-        value: "%.2f" % percentage,
+        value: "#{percentage.round} %",
         color: color_scale.color_for(percentage),
         url: url,
       }.except(except)
