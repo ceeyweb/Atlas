@@ -64,22 +64,16 @@ export default class MobilityQuintile {
   }
 
   updateRegionKpis(kpis) {
-    $.each(kpis, function(i, kpi) {
-      let regionId = Object.keys(this.regions).indexOf(kpi["region"]);
 
+    $.each(kpis, function(i, kpi) {
       this.kpisRegion
-        .find("rect[data-id='" + regionId + "']")
+        .find("circle[data-id='" + kpi["region"] + "']")
         .attr("fill", kpi["color"]);
 
       this.kpisRegion
         .find("[data-id='" + kpi["region"] + "'] > tspan")
         .html(kpi["value"]);
 
-      this.regions[kpi["region"]].forEach(function(element) {
-        this.kpisRegion
-          .find("path[data-id='" + element + "']")
-          .attr("fill", kpi["color"]);
-      }.bind(this));
     }.bind(this));
   };
 
