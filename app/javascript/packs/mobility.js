@@ -17,7 +17,7 @@ $(document).on("turbolinks:load", function() {
       },
       defaultPlot: {
         type: "circle",
-        size: 30,
+        size: 50,
         attrs : {
           stroke: "#ffffff",
           "stroke-width": 1,
