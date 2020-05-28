@@ -22,7 +22,6 @@ export default class MobilityQuintile {
     this.categoryButtons     = "[data-behavior='mobility-category-button']";
 
     // hanlders
-    this.initActiveCategoryHandler();
     this.initEventHandlers();
   }
 
@@ -36,13 +35,11 @@ export default class MobilityQuintile {
       this.updateGenderKpis(data["genders"]);
       this.updateKpisColorScale(data["color_scale"]);
     }.bind(this));
-  }
 
-  initActiveCategoryHandler(){
     $(this.quintileSelectors).click(function (event) {
       this.cleanUpActiveButtons();
       $(event.target).parents('.mobility-dropdown').children('button')
-                     .addClass('mobility-dropwdown__button--active');
+        .addClass('mobility-dropwdown__button--active');
     }.bind(this));
   }
 
