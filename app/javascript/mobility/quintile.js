@@ -80,15 +80,17 @@ export default class MobilityQuintile {
     $.each(kpis, function(i, kpi) {
       html += "<li>";
       html += "<span class='mobility-quintile__kpi-group'>";
+      html += kpi["gender"];
 
-      if(kpi["url"]) {
-        html += "<a href='" + kpi["url"] + "' data-remote='true'";
-        html += " data-behavior='mobility-quintile-selector'>";
-        html += kpi["gender"];
-        html += "</a>";
-      } else {
-        html += kpi["gender"];
-      }
+      // Temporarily commented out the logic to show links for gender
+      // if(kpi["url"]) {
+      //   html += "<a href='" + kpi["url"] + "' data-remote='true'";
+      //   html += " data-behavior='mobility-quintile-selector'>";
+      //   html += kpi["gender"];
+      //   html += "</a>";
+      // } else {
+      //   html += kpi["gender"];
+      // }
 
       html += "</span>";
       html += "<span class='mobility-quintile__kpi-value' style='color: " + kpi["color"] + ";'>";
