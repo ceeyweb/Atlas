@@ -57,93 +57,161 @@ end
     slug: "saludpersq1",
     name: "Persistencia quintil I",
     description: "al igual que sus padres permanecen al quintil más bajo de salud",
-    scale: [30, 70, true],
+    scale: {
+      minimum: 45,
+      maximum: 64,
+      category_one: "45-53",
+      category_two: "53-57",
+      category_three: "57-64"
+    },
     category: "salud",
   },
   {
     slug: "saludpersq5",
     name: "Persistencia quintil V",
     description: "al igual que sus padres permanecen al quintil más alto de salud",
-    scale: [30, 70, true],
+    scale: {
+      minimum: 35,
+      maximum: 54,
+      category_one: "35-46",
+      category_two: "46-50",
+      category_three: "50-54"
+    },
     category: "salud",
   },
   {
     slug: "saludmov1a5",
     name: "Movilidad del quintil I a quintil V",
     description: "nacieron en hogares del quintil I de salud y alcanzaron el quintil V",
-    scale: [0, 4, false],
+    scale: {
+      minimum: 1,
+      maximum: 3,
+      category_one: "1-2",
+      category_two: "2-2",
+      category_three: "2-3"
+    },
     category: "salud",
   },
   {
     slug: "educpersq1",
     name: "Persistencia nivel educativo sin estudios",
     description: "al igual que su padre continúa sin estudios",
-    scale: [1, 9, true],
+    scale: {
+      minimum: 2,
+      maximum: 8,
+      category_one: "2-3",
+      category_two: "3-5",
+      category_three: "5-8"
+    },
     category: "educacion",
   },
   {
     slug: "educpersq5",
     name: "Persistencia nivel educativo carrera profesional",
     description: "al igual que su padre cuentan con carrera profesional",
-    scale: [50, 70, false],
+    scale: {
+      minimum: 53,
+      maximum: 68,
+      category_one: "53-63",
+      category_two: "63-66",
+      category_three: "66-68"
+    },
     category: "educacion",
   },
   {
     slug: "educmov1a5",
     name: "Movilidad del nivel educativo más bajo al más alto",
     description: "cuentan con carrera profesional y que su padre no cuenta con estudios",
-    scale: [6, 10, false],
+    scale: {
+      minimum: 8,
+      maximum: 11,
+      category_one: "8-9",
+      category_two: "9-9",
+      category_three: "9-11"
+    },
     category: "educacion",
   },
   {
     slug: "ocuppersq1",
     name: "Persistencia trabajo agrícola",
     description: "al igual que su padre tiene un trabajo agrícola",
-    scale: [16, 26, true],
+    scale: {
+      minimum: 18,
+      maximum: 25,
+      category_one: "18-21",
+      category_two: "21-23",
+      category_three: "23-25"
+    },
     category: "ocupacional",
   },
   {
     slug: "ocuppersq5",
     name: "Persistencia trabajo no manual de alta calificación",
     description: "al igual que su padre cuentan con trabajo no manual de alta calificación",
-    scale: [20, 35, false],
+    scale: {
+      minimum: 24,
+      maximum: 39,
+      category_one: "24-33",
+      category_two: "33-36",
+      category_three: "36-39"
+    },
     category: "ocupacional",
   },
   {
     slug: "ocupmov1a5",
     name: "Movilidad de la ocupación menos calificada a la más calificada",
     description: "cuentan con trabajo no manual de alta calificación y que su padre contaba con trabajo agrícola",
-    scale: [1, 9, false],
+    scale: {
+      minimum: 2,
+      maximum: 6,
+      category_one: "2-3",
+      category_two: "3-3",
+      category_three: "3-6"
+    },
     category: "ocupacional",
   },
   {
     slug: "riqpersq1",
     name: "Persistencia quintil I",
     description: "al igual que sus padres permanecen al quintil más bajo del índice de riqueza",
-    scale: [20, 70, true],
+    scale: {
+      minimum: 25,
+      maximum: 62,
+      category_one: "25-43",
+      category_two: "43-51",
+      category_three: "51-62"
+    },
     category: "socioeconomica",
   },
   {
     slug: "riqpersq5",
     name: "Persistencia quintil V",
     description: "al igual que sus padres permanecen al quintil más alto del índice de riqueza",
-    scale: [20, 70, false],
+    scale: {
+      minimum: 41,
+      maximum: 62,
+      category_one: "41-52",
+      category_two: "52-56",
+      category_three: "56-62"
+    },
     category: "socioeconomica",
   },
   {
     slug: "riqmov1a5",
     name: "Movilidad del quintil I a quintil V",
     description: "nacieron en hogares del quintil I del índice de riqueza y alcanzaron el quintil V",
-    scale: [2, 6, false],
+    scale: {
+      minimum: 2,
+      maximum: 6,
+      category_one: "2-3",
+      category_two: "3-3",
+      category_three: "3-6"
+    },
     category: "socioeconomica",
   },
 ].each do |quintile_data|
   category = categories[quintile_data[:category]]
-  color_scale = ColorScale.create_or_find_by!(
-    minimum: quintile_data[:scale][0],
-    maximum: quintile_data[:scale][1],
-    positive: quintile_data[:scale][2],
-  )
+  color_scale = ColorScale.create_or_find_by!(quintile_data[:scale])
 
   Quintile.create_or_find_by!(slug: quintile_data[:slug]) do |quintile|
     quintile.name = quintile_data[:name]

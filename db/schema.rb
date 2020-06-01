@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_032059) do
+ActiveRecord::Schema.define(version: 2020_06_01_043646) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2020_05_21_032059) do
   create_table "color_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "minimum", null: false
     t.integer "maximum", null: false
-    t.boolean "positive", default: true, null: false
-    t.index ["minimum", "maximum", "positive"], name: "index_color_scales_on_minimum_and_maximum_and_positive", unique: true
+    t.string "category_one"
+    t.string "category_two"
+    t.string "category_three"
+    t.index ["minimum", "maximum"], name: "index_color_scales_on_minimum_and_maximum_and_positive", unique: true
   end
 
   create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|

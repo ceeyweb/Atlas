@@ -130,10 +130,30 @@ $sur: rgb(245, 133, 49);
 }
 
 .mobility-quintile__color-scale {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
   font-size: .8rem;
   color: white;
   letter-spacing: 1px;
-  padding: .2rem .5rem;
+
+  div {
+    height: 1.8rem;
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      justify-content: flex-start;
+      padding: 0 .3rem;
+    }
+
+    &:last-child {
+      justify-content: flex-end;
+      padding: 0 .3rem;
+    }
+  }
 
   span {
     &:last-child {

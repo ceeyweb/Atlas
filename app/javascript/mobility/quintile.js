@@ -101,13 +101,22 @@ export default class MobilityQuintile {
   };
 
   updateKpisColorScale(colorScale) {
-    const style = "linear-gradient(to right, " + colorScale["colors"] + ")";
     let html = "";
+    let categories = colorScale.categories
 
-    html += "<span> <" + colorScale["minimum"] + "</span>";
-    html += "<span> >" + colorScale["maximum"] + "</span>";
+    $.each(categories, function printCategories(i, category) {
+      html +=  "<div style='background-color: " + category.color + "; width: "+ category.width +"%'>";
 
-    this.kpisColorScale.css("background-image", style);
+      if (i == 0) {
+        html += "<span> <" + colorScale["minimum"] + "</span>";
+      } else if (categories.length == (i + 1)){
+        html += "<span> >" + colorScale["maximum"] + "</span>";
+      }
+
+      html += "</div>"
+    });
+
+    this.kpisColorScale.css("display", "flex");
     this.kpisColorScale.html(html);
   }
 }
