@@ -23,6 +23,56 @@ end
   Region.create_or_find_by!(description: region)
 end
 
+{
+  "Norte": [
+    "baja-california",
+    "sonora",
+    "chihuahua",
+    "coahuila",
+    "nuevo-leon",
+    "tamaulipas"
+  ],
+  "Norte Occidente": [
+    "baja-california-sur",
+    "sinaloa",
+    "durango",
+    "zacatecas",
+    "nayarit"
+  ],
+  "Centro Norte": [
+    "san-luis-potosi",
+    "aguascalientes",
+    "jalisco",
+    "colima",
+    "michoacan",
+    "tlaxcala"
+  ],
+  "Centro": [
+    "guanajuato",
+    "queretaro",
+    "hidalgo",
+    "estado-de-mexico",
+    "cmdx",
+    "morelos",
+    "tlaxcala",
+    "puebla"
+  ],
+  "Sur": [
+    "veracruz",
+    "guerrero",
+    "oaxaca",
+    "tabasco",
+    "chiapas",
+    "campeche",
+    "yucatan",
+    "quintana-roo",
+  ]
+}.each do |key, states|
+  region = Region.find_by!(description: key)
+  states.each{ |state| State.create!(slug: state, region: region) }
+end
+
+
 # Categories
 categories = {}
 
@@ -220,4 +270,24 @@ end
     quintile.color_scale_id = color_scale.id
   end
 end
+
+# Absolute Upward Mobility Indicators
+[
+  {
+    slug: "crecimiento-economico",
+    description: "Tasa de crecimiento económico, promedio 1990-2016 (%)"
+  },
+  {
+    slug: "hacinamiento-vivienda",
+    description: "Hacinamiento en vivienda (número de personas/número de cuartos)"
+  },
+  {
+    slug: "poblacion-sin-educacion",
+    description: "Población sin educación o con primaria incompleta (%)"
+  },
+  {
+    slug: "embarazo-juvenil",
+    description: "Tasa de embarazo juvenil, 15-19 años (%)"
+  }
+].each {|indicator| Indicator.create!(indicator) }
 # rubocop:enable Layout/LineLength

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_043646) do
+ActiveRecord::Schema.define(version: 2020_06_03_045743) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 2020_06_01_043646) do
   create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "description", null: false
     t.index ["description"], name: "index_genders_on_description", unique: true
+  end
+
+  create_table "indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "description", null: false
   end
 
   create_table "kpis_mobility_percentages", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -62,10 +67,34 @@ ActiveRecord::Schema.define(version: 2020_06_01_043646) do
     t.index ["description"], name: "index_regions_on_description", unique: true
   end
 
+  create_table "states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "slug", null: false
+    t.bigint "region_id", null: false
+    t.index ["region_id"], name: "index_states_on_region_id"
+  end
+
+  create_table "upward_mobilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.float "value", null: false
+    t.index ["state_id"], name: "index_upward_mobilities_on_state_id"
+  end
+
+  create_table "upward_mobility_indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "upward_mobility_id", null: false
+    t.bigint "indicator_id", null: false
+    t.float "percentage", null: false
+    t.index ["indicator_id"], name: "index_upward_mobility_indicators_on_indicator_id"
+    t.index ["upward_mobility_id"], name: "index_upward_mobility_indicators_on_upward_mobility_id"
+  end
+
   add_foreign_key "kpis_mobility_percentages", "categories"
   add_foreign_key "kpis_mobility_percentages", "genders"
   add_foreign_key "kpis_mobility_percentages", "quintiles"
   add_foreign_key "kpis_mobility_percentages", "regions"
   add_foreign_key "quintiles", "categories"
   add_foreign_key "quintiles", "color_scales"
+  add_foreign_key "states", "regions"
+  add_foreign_key "upward_mobilities", "states"
+  add_foreign_key "upward_mobility_indicators", "indicators"
+  add_foreign_key "upward_mobility_indicators", "upward_mobilities"
 end

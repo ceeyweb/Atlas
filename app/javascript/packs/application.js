@@ -17,3 +17,4 @@ require("channels")
 
 import "bootstrap";
 import "jquery-mapael";
+import "chart.js";
