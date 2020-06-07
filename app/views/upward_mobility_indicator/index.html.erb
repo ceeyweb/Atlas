@@ -1,45 +1,64 @@
 <% provide(:title, "MOVILIDAD SOCIAL ABSOLUTA ASCENDENTE+") %>
 
 
-<style>
-    .container {
-        width: 50%;
-        height: 50%;
-    }
-</style>
-<body>
-    <button id="renderBtn">
-        Render
-    </button>
-    <div class="container">
-        <canvas id="myChart"></canvas>
-    </div>
+<button id="renderBtn">
+    Render
+</button>
 
-</body>
+<div class="row upward_mobility">
+  <div class="upward_mobility__y_label">
+    <p> EJE Y: </p>
+    <p> Movilidad social  </p>
+    <p> abosuluta ascendente  </p>
+  </div>
+  <div class="upward_mobility__chart">
+    <canvas id="upwardMobilityChart"></canvas>
+    </div>
+  <div class="upward_mobility__x_label">
+  <p>EJE X: Selecciona el indicator</p>
+  </div>
+ </div>
+
+ <div class="upward_mobility_indicators">
+  <% Indicator.all.each_with_index do |indicator, i| %>
+    <% if i == 0 %>
+      <a type="button" class="upward_mobility_indicators__button active"><%= indicator.description%></a>
+      <% else %>
+      <%= link_to indicator.description, upward_mobility_indicator_path(slug: indicator.slug),
+            remote: true, "data-behaviour": "upward-mobility-indicator-button",
+            class: "upward_mobility_indicators__button" %>
+      <% end %>
+  <% end %>
+ </div>
+
+
 
 <script>
 function renderChart() {
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
+    // var ctx = document.getElementById("upwardMobilityChart").getContext('2d');
+    var ctx = document.getElementById("upwardMobilityChart");
+    var mobilityChart = new Chart(ctx, {
         type: 'scatter',
         data: {
             datasets: [{
-                label: 'Scatter Dataset',
                 data: [ {x: 1, y: 1} ]
             }]
         },
         options: {
           scales: {
-              xAxes: [{
-                  gridLines: {
-                      drawOnChartArea: false
-                  }
-              }],
-              yAxes: [{
-                  gridLines: {
-                      drawOnChartArea: false
-                  }
-              }]
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              },
+            }],
+            yAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }],
+          },
+          legend: {
+            display: false
           }
         }
     });

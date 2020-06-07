@@ -1,3 +1,74 @@
 // Place all the styles related to the UpwardMobilityIndicator controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.upward_mobility {
+  padding: 2rem;
+  justify-content: center;
+  padding-bottom: 0;
+}
+
+.upward_mobility__y_label {
+  color: $green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 550;
+  font-size: 0.9rem;
+  width: 30%;
+  padding-left: 8rem;
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+.upward_mobility__chart {
+  width: 70%;
+  height: 50%;
+  padding-left: 0.5rem;
+  padding-right: 10rem;
+
+  canvas {
+    background-color: #F8F8F8;
+    padding: 1rem;
+  }
+}
+
+.upward_mobility__x_label {
+  color: $green;
+  font-weight: 550;
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
+}
+
+.upward_mobility_indicators {
+  padding-left: 20rem;
+  padding-right: 9rem;
+  margin-bottom: 5rem;
+}
+
+.upward_mobility_indicators__button {
+  display: block;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: left;
+  margin: 0.13rem;
+  border: 0;
+  background-color: $green;
+  color: white;
+  padding: 0.25rem;
+
+  &:hover {
+    color: white;
+  }
+
+  &.active {
+    background-color: #E1F0DB;
+    color: black;
+    font-weight: 525;
+  }
+}
+
