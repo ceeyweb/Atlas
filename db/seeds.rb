@@ -19,8 +19,14 @@ Region.create_or_find_by(id: 0) do |gender|
   gender.description = "Total"
 end
 
-["Norte", "Norte Occidente", "Centro Norte", "Centro", "Sur"].each do |region|
-  Region.create_or_find_by!(description: region)
+[
+  { description: "Norte", color: '#145861' },
+  { description: "Norte Occidente", color: '#41939c' },
+  { description: "Centro Norte", color: '#959696' },
+  { description: "Centro", color: '#cdcbca' },
+  { description: "Sur", color: '#f58531' }
+].each do |region|
+  Region.create_or_find_by!(region)
 end
 
 {

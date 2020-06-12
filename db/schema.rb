@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_045743) do
+ActiveRecord::Schema.define(version: 2020_06_12_013944) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_045743) do
 
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "description", null: false
+    t.string "color"
     t.index ["description"], name: "index_regions_on_description", unique: true
   end
 

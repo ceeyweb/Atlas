@@ -44,10 +44,7 @@ export default class UpwardMobilityIndicator {
   };
 
   updateChart(data) {
-    this.chart.data.datasets.forEach((dataset) => {
-      dataset.data = data;
-    });
-
+    this.chart.data.datasets = data;
     this.chart.update();
   };
 
