@@ -267,7 +267,7 @@ end
   },
 ].each do |quintile_data|
   category = categories[quintile_data[:category]]
-  color_scale = ColorScale.create_or_find_by!(quintile_data[:scale])
+  color_scale = ColorScale.create!(quintile_data[:scale])
 
   Quintile.create_or_find_by!(slug: quintile_data[:slug]) do |quintile|
     quintile.name = quintile_data[:name]

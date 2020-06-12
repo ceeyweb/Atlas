@@ -5,12 +5,12 @@ class ColorScale < ApplicationRecord
   COLORS = { category_one: RED, category_two: YELLOW, category_three: GREEN }.freeze
 
   def color_for(value)
-    value = value.to_i
-    if category_one.cover?(value)
-      COLORS[:category_one]
-    elsif category_two.cover?(value)
+    value = value.round
+    if  category_two.cover?(value)
       COLORS[:category_two]
-    else
+    elsif category_one.last > value
+      COLORS[:category_one]
+    elsif category_three.first < value
       COLORS[:category_three]
     end
   end
