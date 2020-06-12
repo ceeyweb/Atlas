@@ -86,22 +86,22 @@ categories = {}
   {
     slug: 'socioeconomica',
     title: 'SOCIOECONOMICA',
-    description: 'Descripcion...'
+    description: 'Resume el bienestar material acumulado de las personas con relación al de su hogar de origen. El nivel de riqueza refleja qué tanto los hogares pueden absorber choques adversos o generar planes de inversión a futuro.'
   },
   {
     slug: 'educacion',
     title: 'EDUCACION',
-    description: 'Descripcion...'
+    description: 'Mide la relación que existe entre la escolaridad de los padres y el logro educativo de los hijos. La educación refleja el potencial en el mercado laboral de las personas.'
   },
   {
     slug: 'salud',
     title: 'SALUD',
-    description: 'Estado en el que un ser u organismo vivo no tiene ninguna lesion ni padece ninguna efermedad y ejerce con normalidad todas sus funciones',
+    description: 'La movilidad intergeneracional en salud es la relación que existe entre el logro en salud de los hijos respecto al logro en salud de sus padres.',
   },
   {
     slug: 'ocupacional',
     title: 'OCUPACION',
-    description: 'Descripcion...'
+    description: 'Identifica la facilidad con la que los hijos pueden ascender hasta el estrato más alto respecto a la ocupación de sus padres. La ocupación indica la realización socioeconómica de las personas.'
   },
 ].each do |category|
   categories[category[:slug]] = Category.find_or_create_by!(category)
