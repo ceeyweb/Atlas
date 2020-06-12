@@ -2,8 +2,10 @@ class UpwardMobilityIndicator < ApplicationRecord
   belongs_to :upward_mobility
   belongs_to :indicator
   has_one :region, through: :upward_mobility
+  has_one :state, through: :upward_mobility
 
   delegate :value, to: :upward_mobility
+  delegate :name, to: :state, prefix: true
 
   scope :where_indicator, -> (query){ joins(:indicator).where(indicators: query).includes(:upward_mobility, :region) }
 
@@ -18,6 +20,6 @@ class UpwardMobilityIndicator < ApplicationRecord
   end
 
   def mapped_data
-    { x: percentage, y: value }
+    { x: percentage, y: value, state: state_name }
   end
 end

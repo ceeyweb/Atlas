@@ -24,6 +24,13 @@ export default class UpwardMobilityIndicator {
         },
         legend: {
           display: false
+        },
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem, data) {
+              return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].state || '';
+            }
+          }
         }
       }
     });

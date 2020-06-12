@@ -31,51 +31,51 @@ end
 
 {
   "Norte": [
-    "baja-california",
-    "sonora",
-    "chihuahua",
-    "coahuila",
-    "nuevo-leon",
-    "tamaulipas"
+    { slug: "baja-california", name: 'Baja California' },
+    { slug: "sonora", name: 'Sonora' },
+    { slug: "chihuahua", name: 'Chihuahua' },
+    { slug: "coahuila", name: 'Coahuila' },
+    { slug: "nuevo-leon", name: 'Nuevo león' },
+    { slug: "tamaulipas", name: 'Tamaulipas' }
   ],
   "Norte Occidente": [
-    "baja-california-sur",
-    "sinaloa",
-    "durango",
-    "zacatecas",
-    "nayarit"
+    { slug: "baja-california-sur", name: 'Baja California Sur' },
+    { slug: "sinaloa", name: 'Sinaloa' },
+    { slug: "durango", name: 'Durango' },
+    { slug: "zacatecas", name: 'Zacatecas' },
+    { slug: "nayarit", name: 'Nayarit' }
   ],
   "Centro Norte": [
-    "san-luis-potosi",
-    "aguascalientes",
-    "jalisco",
-    "colima",
-    "michoacan",
-    "tlaxcala"
+    { slug: "san-luis-potosi", name: 'San Luis Potosi' },
+    { slug: "aguascalientes", name: 'Aguascalientes' },
+    { slug: "jalisco", name: 'Jalisco' },
+    { slug: "colima", name: 'Colima' },
+    { slug: "michoacan", name: 'Michoacan' },
+    { slug: "tlaxcala", name: 'Tlaxcala' }
   ],
   "Centro": [
-    "guanajuato",
-    "queretaro",
-    "hidalgo",
-    "estado-de-mexico",
-    "cmdx",
-    "morelos",
-    "tlaxcala",
-    "puebla"
+    { slug: "guanajuato", name: 'Guanajuato' },
+    { slug: "queretaro", name: 'Queretaro' },
+    { slug: "hidalgo", name: 'Hidalgo' },
+    { slug: "estado-de-mexico", name: 'Estado de Mexico' },
+    { slug: "cmdx", name: 'Ciudad de Mexico' },
+    { slug: "morelos", name: 'Morelos' },
+    { slug: "tlaxcala", name: 'Tlaxcala' },
+    { slug: "puebla", name: 'Puebla' }
   ],
   "Sur": [
-    "veracruz",
-    "guerrero",
-    "oaxaca",
-    "tabasco",
-    "chiapas",
-    "campeche",
-    "yucatan",
-    "quintana-roo",
+    { slug: "veracruz", name: 'Veracruz' },
+    { slug: "guerrero", name: 'Guerrero' },
+    { slug: "oaxaca", name: 'Oaxaca' },
+    { slug: "tabasco", name: 'Tabasco' },
+    { slug: "chiapas", name: 'Chiapas' },
+    { slug: "campeche", name: 'Campeche' },
+    { slug: "yucatan", name: 'Yucatan' },
+    { slug: "quintana-roo", name: 'Qintana Roo' }
   ]
 }.each do |key, states|
   region = Region.find_by!(description: key)
-  states.each{ |state| State.create!(slug: state, region: region) }
+  states.each{ |state| State.create!(**state, region: region) }
 end
 
 
