@@ -14,10 +14,36 @@
   </div>
 </div>
 
-<div class="upward_mobility_indicators">
-  <% Indicator.all.each_with_index do |indicator, i| %>
-    <%= link_to indicator.description, upward_mobility_indicator_path(slug: indicator.slug),
-          remote: true, "data-behavior": "upward-mobility-indicator-selector",
-          class: "upward_mobility_indicators__button" %>
-  <% end %>
+
+<div class="updward_mobility_legends_container">
+  <div class="mobility-regions">
+    <div class="mobility-region">
+      <div class="mobility-region__color norte"></div>
+      <div class="mobility-region__title">Norte</div>
+    </div>
+    <div class="mobility-region">
+      <div class="mobility-region__color norte-occidente"></div>
+      <div class="mobility-region__title">Norte-Occidente</div>
+    </div>
+    <div class="mobility-region">
+      <div class="mobility-region__color centro-norte"></div>
+      <div class="mobility-region__title">Centro-Norte</div>
+    </div>
+    <div class="mobility-region">
+      <div class="mobility-region__color centro"></div>
+      <div class="mobility-region__title">Centro</div>
+    </div>
+    <div class="mobility-region">
+      <div class="mobility-region__color sur"></div>
+      <div class="mobility-region__title">Sur</div>
+    </div>
+  </div>
+
+  <div class="upward_mobility_indicators">
+    <% Indicator.all.each_with_index do |indicator, i| %>
+      <%= link_to indicator.description, upward_mobility_indicator_path(slug: indicator.slug),
+            remote: true, "data-behavior": "upward-mobility-indicator-selector",
+            class: "upward_mobility_indicators__button" %>
+    <% end %>
+  </div>
 </div>
