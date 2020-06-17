@@ -2,48 +2,16 @@ export default class UpwardMobilityIndicator {
   constructor() {
     this.chartContainer             = $("[data-behavior='upward_mobility_chart_container']");
     this.mobilityIndicatorsSelector = "[data-behavior='upward-mobility-indicator-selector']";
-    this.chart                      = new Chart(this.chartContainer, {
-      type: 'scatter',
-      data: {
-        datasets: [{
-          data: [{ x: 1, y: 1 }]
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            gridLines: {
-              drawOnChartArea: false
-            },
-          }],
-          yAxes: [{
-            gridLines: {
-              drawOnChartArea: false
-            }
-          }],
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              let info = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-              let x = info.x.toFixed(1);
-              let y = info.y.toFixed(1);
-              let state  = info.state || '';
-
-              return `(${x}, ${y}) ${state}`;
-            }
-          }
-        }
-      }
-    });
+    this.chart                      = null;
 
     this.initEventHandlers();
   }
 
   initEventHandlers() {
+    $(document).ready(function () {
+      this.renderChart();
+    }.bind(this));
+
     $(document).on("ajax:success", this.mobilityIndicatorsSelector, function (event) {
       const [data, status, xhr] = event.detail;
       this.updateChart(data);
@@ -56,13 +24,57 @@ export default class UpwardMobilityIndicator {
   };
 
   updateChart(data) {
-    this.chart.data.datasets = data;
-    this.chart.update();
+    if (this.chart != undefined && this.chart.data != undefined) {
+      this.chart.data.datasets = data;
+      this.chart.update();
+    }
   };
 
   cleanUpPreviousActiveSelector() {
     document.querySelectorAll(this.mobilityIndicatorsSelector).forEach((selector) => {
       selector.classList.remove("active");
     });
+  }
+
+  renderChart() {
+    if (this.chartContainer.length) {
+      this.chart = new Chart(this.chartContainer, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            data: [{ x: 1, y: 1 }]
+          }]
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              },
+            }],
+            yAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }],
+          },
+          legend: {
+            display: false
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                let info = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                let x = info.x.toFixed(1);
+                let y = info.y.toFixed(1);
+                let state = info.state || '';
+
+                return `(${x}, ${y}) ${state}`;
+              }
+            }
+          }
+        }
+      });
+    }
   }
 }
