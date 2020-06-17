@@ -50,8 +50,7 @@ end
     { slug: "aguascalientes", name: 'Aguascalientes' },
     { slug: "jalisco", name: 'Jalisco' },
     { slug: "colima", name: 'Colima' },
-    { slug: "michoacan", name: 'Michoacan' },
-    { slug: "tlaxcala", name: 'Tlaxcala' }
+    { slug: "michoacan", name: 'Michoacan' }
   ],
   "Centro": [
     { slug: "guanajuato", name: 'Guanajuato' },

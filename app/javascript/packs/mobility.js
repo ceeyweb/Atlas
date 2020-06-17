@@ -125,7 +125,6 @@ $(document).on("turbolinks:load", function() {
       "jalisco": { value: "centro-norte" },
       "colima": { value: "centro-norte" },
       "michoacan": { value: "centro-norte" },
-      "tlaxcala": { value: "centro-norte" },
       "guanajuato": { value: "centro" },
       "queretaro": { value: "centro" },
       "hidalgo": { value: "centro" },
