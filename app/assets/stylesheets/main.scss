@@ -114,6 +114,11 @@ body {
   }
 }
 
+.footer_row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .footer__privacy {
   text-align: center;
   color: $gray-dark;
