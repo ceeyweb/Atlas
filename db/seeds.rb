@@ -46,18 +46,18 @@ end
     { slug: "nayarit", name: 'Nayarit' }
   ],
   "Centro Norte": [
-    { slug: "san-luis-potosi", name: 'San Luis Potosi' },
+    { slug: "san-luis-potosi", name: 'San Luis Potosí' },
     { slug: "aguascalientes", name: 'Aguascalientes' },
     { slug: "jalisco", name: 'Jalisco' },
     { slug: "colima", name: 'Colima' },
-    { slug: "michoacan", name: 'Michoacan' }
+    { slug: "michoacan", name: 'Michoacán' }
   ],
   "Centro": [
     { slug: "guanajuato", name: 'Guanajuato' },
-    { slug: "queretaro", name: 'Queretaro' },
+    { slug: "queretaro", name: 'Querétaro' },
     { slug: "hidalgo", name: 'Hidalgo' },
-    { slug: "estado-de-mexico", name: 'Estado de Mexico' },
-    { slug: "cmdx", name: 'Ciudad de Mexico' },
+    { slug: "estado-de-mexico", name: 'Estado de México' },
+    { slug: "cmdx", name: 'Ciudad de México' },
     { slug: "morelos", name: 'Morelos' },
     { slug: "tlaxcala", name: 'Tlaxcala' },
     { slug: "puebla", name: 'Puebla' }
@@ -69,7 +69,7 @@ end
     { slug: "tabasco", name: 'Tabasco' },
     { slug: "chiapas", name: 'Chiapas' },
     { slug: "campeche", name: 'Campeche' },
-    { slug: "yucatan", name: 'Yucatan' },
+    { slug: "yucatan", name: 'Yucatán' },
     { slug: "quintana-roo", name: 'Qintana Roo' }
   ]
 }.each do |key, states|
