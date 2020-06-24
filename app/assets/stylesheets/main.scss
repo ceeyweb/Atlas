@@ -133,3 +133,18 @@ body {
     }
   }
 }
+
+.footer-share-buttons {
+  margin-top: 1rem;
+}
+
+$button-size: 1.7rem;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $button-size $button-size !important;
+    height: $button-size !important;
+    width: $button-size !important;
+    margin: 1px !important;
+  }
+}

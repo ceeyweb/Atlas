@@ -18,3 +18,4 @@ require("channels")
 import "bootstrap";
 import "jquery-mapael";
 import "chart.js";
+import "../social-share-button";

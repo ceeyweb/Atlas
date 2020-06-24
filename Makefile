@@ -8,10 +8,10 @@ up: ## Start Atlas container on background
 	@docker-compose -p ceey -f ../docker/development/docker-compose.yml up -d atlas
 
 restart: ## Restart Atlas container
-	@docker-compose -p ceey -f ../docker/development/docker-compose.yml restart pms
+	@docker-compose -p ceey -f ../docker/development/docker-compose.yml restart atlas
 
 build: ## Rebuild and start Atlas container on background
-	@docker-compose -p ceey -f ../docker/development/docker-compose.yml up -d --build pms
+	@docker-compose -p ceey -f ../docker/development/docker-compose.yml up -d --build atlas
 
 down: ## Stop and remove all CEEY containers
 	@docker-compose -p ceey -f ../docker/development/docker-compose.yml down

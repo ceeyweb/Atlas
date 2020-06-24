@@ -51,8 +51,15 @@
     <section class="footer" id="footer">
       <div class="footer_row">
         <div class="offset-1 col-5 text-center">
-          <%= image_tag("logo-white.png", height: 60) %>
+          <a href="https://ceey.org.mx/" target="blank">
+            <%= image_tag("logo-white.png", height: 60) %>
+          </a>
+
+          <div class="footer-share-buttons">
+            <%= render "shared/social_share_buttons" %>
+          </div>
         </div>
+
         <div class="col-5">
           <p id="test">CONTACTO</p>
           <ul class="list-unstyled">
