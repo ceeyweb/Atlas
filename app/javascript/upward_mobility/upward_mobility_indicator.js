@@ -65,11 +65,11 @@ export default class UpwardMobilityIndicator {
             callbacks: {
               label: function (tooltipItem, data) {
                 let info = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                let x = info.x.toFixed(1);
-                let y = info.y.toFixed(1);
+                let x = info.x;
+                let y = info.y;
                 let state = info.state || '';
 
-                return `(${x}, ${y}) ${state}`;
+                return ` (${y}, ${x}) ${state}`;
               }
             }
           }

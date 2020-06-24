@@ -303,7 +303,7 @@ end
   },
   {
     slug: "embarazo-juvenil",
-    description: "Tasa de embarazo juvenil, 15-19 años (%)",
+    description: "Tasa de embarazo juvenil, 15-19 años (cada 1000 mujeres)",
     tooltip: <<~TEXT,
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
       tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
