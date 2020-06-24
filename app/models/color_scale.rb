@@ -1,7 +1,7 @@
 class ColorScale < ApplicationRecord
-  RED = "#dc3545"
-  YELLOW = "#fff333"
-  GREEN = "#28a745"
+  RED = "#d41414"
+  YELLOW = "#e2de19"
+  GREEN = "#3bc20f"
   COLORS = { category_one: RED, category_two: YELLOW, category_three: GREEN }.freeze
 
   def color_for(value)
