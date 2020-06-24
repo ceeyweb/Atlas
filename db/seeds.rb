@@ -84,12 +84,12 @@ categories = {}
 [
   {
     slug: 'socioeconomica',
-    title: 'SOCIOECONOMICA',
+    title: 'SOCIOECONÓMICA',
     description: 'Resume el bienestar material acumulado de las personas con relación al de su hogar de origen. El nivel de riqueza refleja qué tanto los hogares pueden absorber choques adversos o generar planes de inversión a futuro.'
   },
   {
     slug: 'educacion',
-    title: 'EDUCACION',
+    title: 'EDUCACIÓN',
     description: 'Mide la relación que existe entre la escolaridad de los padres y el logro educativo de los hijos. La educación refleja el potencial en el mercado laboral de las personas.'
   },
   {
@@ -99,7 +99,7 @@ categories = {}
   },
   {
     slug: 'ocupacional',
-    title: 'OCUPACION',
+    title: 'OCUPACIÓN',
     description: 'Identifica la facilidad con la que los hijos pueden ascender hasta el estrato más alto respecto a la ocupación de sus padres. La ocupación indica la realización socioeconómica de las personas.'
   },
 ].each do |category|
