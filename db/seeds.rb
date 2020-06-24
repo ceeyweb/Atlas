@@ -280,19 +280,35 @@ end
 [
   {
     slug: "crecimiento-economico",
-    description: "Tasa de crecimiento económico, promedio 1990-2016 (%)"
+    description: "Tasa de crecimiento económico per cápita promedio anual (%)",
+    tooltip: "Crecimiento del PIB real de 1990 a 2016. <br><br><b>Fuente</b>: INEGI",
   },
   {
     slug: "hacinamiento-vivienda",
-    description: "Hacinamiento en vivienda (número de personas/número de cuartos)"
+    description: "Hacinamiento en vivienda (número de personas/número de cuartos)",
+    tooltip: <<~TEXT,
+      Relación entre el número de personas en una vivienda o casa y el espacio
+      o número de cuartos disponibles. <br><br><b>Fuente</b>: XI censo general
+      de población y vivienda, 1990, México, INEGI, 1990.
+    TEXT
   },
   {
     slug: "poblacion-sin-educacion",
-    description: "Población sin educación o con primaria incompleta (%)"
+    description: "Población sin educación primaria, x-x años (%)",
+    tooltip: <<~TEXT,
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+      tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
+      XI censo general de población y vivienda, 1990, México, INEGI, 1990.
+    TEXT
   },
   {
     slug: "embarazo-juvenil",
-    description: "Tasa de embarazo juvenil, 15-19 años (%)"
-  }
-].each {|indicator| Indicator.create!(indicator) }
+    description: "Tasa de embarazo juvenil, 15-19 años (%)",
+    tooltip: <<~TEXT,
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+      tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
+      XI censo general de población y vivienda, 1990, México, INEGI, 1990.
+    TEXT
+  },
+].each { |indicator| Indicator.create!(indicator) }
 # rubocop:enable Layout/LineLength

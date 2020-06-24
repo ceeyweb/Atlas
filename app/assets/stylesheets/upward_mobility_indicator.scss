@@ -8,7 +8,7 @@
   padding-bottom: 0;
 }
 
-.upward_mobility__y_label {
+.upward-mobility__y-label {
   color: $green;
   display: flex;
   flex-direction: column;
@@ -17,12 +17,32 @@
   font-size: 0.9rem;
   width: 30%;
   padding-left: 8rem;
+  text-align: center;
+  align-items: center;
 
-  p {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  a {
+    margin-top: 10px;
   }
+}
+
+
+.upward-mobility__i {
+  background-color: #145861;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #ffffff !important;
+  font-family: "Times New Roman";
+  font-style: italic;
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  font-weight: 550;
+  font-size: 0.9rem;
+}
+
+.upward_mobility__i--link {
+  cursor: pointer;
 }
 
 .upward_mobility__chart {
@@ -51,9 +71,9 @@
 }
 
 .upward_mobility_indicators__button {
-  display: block;
+  display: inline-block;
   font-size: 0.9rem;
-  width: 100%;
+  width: 70%;
   text-align: left;
   margin: 0.13rem;
   border: 0;

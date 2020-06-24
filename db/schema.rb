@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_051057) do
+ActiveRecord::Schema.define(version: 2020_06_24_163716) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_051057) do
   create_table "indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "slug", null: false
     t.string "description", null: false
+    t.string "tooltip"
   end
 
   create_table "kpis_mobility_percentages", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
