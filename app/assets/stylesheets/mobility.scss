@@ -238,3 +238,7 @@ $sur: rgb(245, 133, 49);
   color: white;
   background-color: $green;
 }
+
+circle {
+  pointer-events: none;
+}
