@@ -1,6 +1,8 @@
+import "bootstrap/js/dist/tooltip";
+
 export default class MobilityQuintile {
   constructor() {
-    // regions
+    // constants
     this.regions = {
       "norte": ["baja california", "sonora", "chihuahua", "coahuila", "nuevo leon", "tamaulipas"],
       "norte-occidente": ["baja california sur", "sinaloa", "durango", "zacatecas", "nayarit"],
@@ -30,10 +32,10 @@ export default class MobilityQuintile {
       const [data, status, xhr] = event.detail;
 
       this.updateHeader(data.category.title, data.category.description);
-      this.updateQuintile(data["title"], data["description"]);
-      this.updateRegionKpis(data["regions"]);
-      this.updateGenderKpis(data["genders"]);
-      this.updateKpisColorScale(data["color_scale"]);
+      this.updateQuintile(data.title, data.description, data.tooltip);
+      this.updateRegionKpis(data.regions);
+      this.updateGenderKpis(data.genders);
+      this.updateKpisColorScale(data.color_scale);
     }.bind(this));
 
     $(this.quintileSelectors).click(function (event) {
@@ -55,9 +57,14 @@ export default class MobilityQuintile {
     this.categoryDescription.html(`<span>${title}: </span> ${description}`);
   }
 
-  updateQuintile(title, description) {
+  updateQuintile(title, description, tooltip) {
     this.quintileTitle.html(title);
     this.quintileDescription.html(description);
+
+    if(tooltip) {
+      this.quintileTitle.append(this.tooltip(tooltip));
+      $("[data-toggle='tooltip']").tooltip();
+    }
   }
 
   updateRegionKpis(kpis) {
@@ -120,5 +127,17 @@ export default class MobilityQuintile {
 
     this.kpisColorScale.css("display", "flex");
     this.kpisColorScale.html(html);
+  }
+
+  tooltip(content) {
+    return $("<a></a>", {
+      "href": content.url,
+      "target": "_blank",
+      "class": "upward-mobility__i upward_mobility__i--link float-right",
+      "data-toggle": "tooltip",
+      "data-placement": "auto",
+      "data-html": "true",
+      "title": content.text,
+    }).text("i");
   }
 }
