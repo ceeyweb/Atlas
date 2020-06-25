@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.upward_mobility {
-  padding: 2rem;
-  justify-content: center;
-  padding-bottom: 0;
-}
-
 .upward-mobility__y-label {
   color: $green;
   display: flex;
@@ -15,10 +9,10 @@
   justify-content: center;
   font-weight: 550;
   font-size: 0.9rem;
-  width: 30%;
-  padding-left: 8rem;
   text-align: center;
   align-items: center;
+  float: right;
+  height: 100%;
 
   a {
     margin-top: 10px;
@@ -41,15 +35,11 @@
   font-size: 0.9rem;
 }
 
-.upward_mobility__i--link {
+.upward-mobility__i--link {
   cursor: pointer;
 }
 
-.upward_mobility__chart {
-  width: 70%;
-  height: 50%;
-  padding-left: 0.5rem;
-  padding-right: 10rem;
+.upward-mobility__chart {
 
   canvas {
     background-color: #F8F8F8;
@@ -57,24 +47,18 @@
   }
 }
 
-.upward_mobility__x_label {
+.upward-mobility__x-label {
   color: $green;
   font-weight: 550;
   font-size: 0.9rem;
   padding-top: 0.5rem;
+  text-align: center;
 }
 
-.upward_mobility_indicators {
-  padding-left: 5rem;
-  padding-right: 10rem;
-  width: 77%;
-}
-
-.upward_mobility_indicators__button {
+.upward-mobility-indicator {
   display: inline-block;
   font-size: 0.9rem;
-  width: 70%;
-  text-align: left;
+  width: calc(100% - 28px);
   margin: 0.13rem;
   border: 0;
   background-color: $green;
@@ -92,6 +76,7 @@
   }
 }
 
-.updward_mobility_legends_container {
+.updward-mobility-legends-container {
   display: flex;
 }
+

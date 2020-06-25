@@ -133,7 +133,7 @@ export default class MobilityQuintile {
     return $("<a></a>", {
       "href": content.url,
       "target": "_blank",
-      "class": "upward-mobility__i upward_mobility__i--link float-right",
+      "class": "upward-mobility__i upward-mobility__i--link float-right",
       "data-toggle": "tooltip",
       "data-placement": "auto",
       "data-html": "true",
