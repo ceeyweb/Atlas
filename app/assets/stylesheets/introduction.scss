@@ -1,0 +1,25 @@
+.intro {
+  margin: 15px 35px;
+  text-align: justify;
+}
+
+.intro-button {
+  margin: 45px 0;
+  display: inline-block;
+  width: 48%;
+  text-align: center;
+}
+
+.intro-button__link {
+  padding: 1rem;
+  width: 18rem;
+  display: inline-block;
+  background-color: #145861;
+  font-size: 1rem;
+  color: #ffffff;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #f58531;
+  }
+}
