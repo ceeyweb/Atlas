@@ -16,6 +16,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "bootstrap";
-import "jquery-mapael";
+// import "jquery-mapael";
 import "chart.js";
 import "../social-share-button";
+import "../jquery-mapael";

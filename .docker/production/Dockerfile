@@ -36,6 +36,8 @@ COPY .docker/development/docker-entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
+RUN bundle exec rake assets:precompile
+
 # Specify app port
 EXPOSE 3000
 
