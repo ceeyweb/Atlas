@@ -294,7 +294,7 @@ end
   },
   {
     slug: "poblacion-sin-educacion",
-    description: "Población sin educación primaria, x-x años (%)",
+    description: "Población sin educación primaria (%)",
     tooltip: <<~TEXT,
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
       tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
