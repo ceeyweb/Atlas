@@ -2,19 +2,16 @@ class ColorScale < ApplicationRecord
   RED = "#d41414".freeze
   YELLOW = "#e2de19".freeze
   GREEN = "#3bc20f".freeze
-  COLORS = {
-    category_one: RED, category_two: YELLOW, category_three: GREEN
-  }.freeze
 
   def color_for(value)
     value = value.round
 
     if category_two.cover?(value)
-      COLORS[:category_two]
+      colors[:category_two]
     elsif category_one.last > value
-      COLORS[:category_one]
+      colors[:category_one]
     elsif category_three.first < value
-      COLORS[:category_three]
+      colors[:category_three]
     end
   end
 
@@ -39,7 +36,7 @@ class ColorScale < ApplicationRecord
   end
 
   def categories
-    COLORS.map do |k, v|
+    colors.map do |k, v|
       { key: k, color: v, width: width_for(send(k)) }
     end
   end
@@ -49,6 +46,16 @@ class ColorScale < ApplicationRecord
   end
 
   private
+
+  def colors
+    one, three = inverted? ? [GREEN, RED] : [RED, GREEN]
+
+    @colors ||= {
+      category_one: one,
+      category_two: YELLOW,
+      category_three: three,
+    }
+  end
 
   def range(string_range)
     Range.new(*string_range.split("-").map(&:to_i))
