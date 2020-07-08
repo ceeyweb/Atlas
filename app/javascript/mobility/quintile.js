@@ -11,6 +11,12 @@ export default class MobilityQuintile {
       "sur": ["veracruz", "guerrero", "oaxaca", "tabasco", "chiapas", "campeche", "yucatan", "quintana roo"]
     }
 
+    this.colorLegends = [
+      "Menor que la media nacional.",
+      "Alrededor de la media nacional.",
+      "Mayor que la media nacional.",
+    ]
+
     // static attributes
     this.categoryDescription = $("[data-behavior='mobility-category-description']");
     this.quintileTitle       = $("[data-behavior='mobility-quintile-title']");
@@ -23,7 +29,7 @@ export default class MobilityQuintile {
     this.quintileSelectors   = "[data-behavior='mobility-quintile-selector']";
     this.categoryButtons     = "[data-behavior='mobility-category-button']";
 
-    // hanlders
+    // handlers
     this.initEventHandlers();
   }
 
@@ -114,7 +120,9 @@ export default class MobilityQuintile {
     let categories = colorScale.categories
 
     $.each(categories, function printCategories(i, category) {
-      html +=  "<div style='background-color: " + category.color + "; width: "+ category.width +"%'>";
+
+      html += "<div style='background-color: " + category.color + "; width: "+ category.width +"%'";
+      html += " data-toggle='tooltip' title='" + this.colorLegends[i] + "'>";
 
       if (i == 0) {
         html += "<span> <" + colorScale["minimum"] + "</span>";
@@ -123,10 +131,11 @@ export default class MobilityQuintile {
       }
 
       html += "</div>"
-    });
+    }.bind(this));
 
     this.kpisColorScale.css("display", "flex");
     this.kpisColorScale.html(html);
+    $("[data-toggle='tooltip']").tooltip();
   }
 
   tooltip(content) {

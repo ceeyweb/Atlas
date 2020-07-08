@@ -1,12 +1,15 @@
 class ColorScale < ApplicationRecord
-  RED = "#d41414"
-  YELLOW = "#e2de19"
-  GREEN = "#3bc20f"
-  COLORS = { category_one: RED, category_two: YELLOW, category_three: GREEN }.freeze
+  RED = "#d41414".freeze
+  YELLOW = "#e2de19".freeze
+  GREEN = "#3bc20f".freeze
+  COLORS = {
+    category_one: RED, category_two: YELLOW, category_three: GREEN
+  }.freeze
 
   def color_for(value)
     value = value.round
-    if  category_two.cover?(value)
+
+    if category_two.cover?(value)
       COLORS[:category_two]
     elsif category_one.last > value
       COLORS[:category_one]
@@ -48,6 +51,6 @@ class ColorScale < ApplicationRecord
   private
 
   def range(string_range)
-    Range.new(*string_range.split('-').map(&:to_i))
+    Range.new(*string_range.split("-").map(&:to_i))
   end
 end
