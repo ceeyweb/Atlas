@@ -32,13 +32,17 @@ class ColorScale < ApplicationRecord
   end
 
   def to_h
-    as_json(only: %i[minimum maximum], methods: :categories)
+    as_json(only: %i[minimum maximum], methods: %i[categories average_limits])
   end
 
   def categories
     colors.map do |k, v|
       { key: k, color: v, width: width_for(send(k)) }
     end
+  end
+
+  def average_limits
+    { low: category_two.first, high: category_two.last }
   end
 
   def all_categories_length

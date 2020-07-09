@@ -93,7 +93,7 @@ export default class MobilityQuintile {
     $.each(kpis, function(i, kpi) {
       html += "<li>";
       html += "<span class='mobility-quintile__kpi-group'>";
-      html += kpi["gender"];
+      html += kpi.gender;
 
       // Temporarily commented out the logic to show links for gender
       // if(kpi["url"]) {
@@ -106,8 +106,8 @@ export default class MobilityQuintile {
       // }
 
       html += "</span>";
-      html += "<span class='mobility-quintile__kpi-value' style='color: " + kpi["color"] + ";'>";
-      html += kpi["value"];
+      html += "<span class='mobility-quintile__kpi-value' style='color: " + kpi.color + ";'>";
+      html += kpi.value;
       html += "</span>";
       html += "</li>";
     }.bind(this));
@@ -120,14 +120,15 @@ export default class MobilityQuintile {
     let categories = colorScale.categories
 
     $.each(categories, function printCategories(i, category) {
-
       html += "<div style='background-color: " + category.color + "; width: "+ category.width +"%'";
       html += " data-toggle='tooltip' title='" + this.colorLegends[i] + "'>";
 
       if (i == 0) {
-        html += "<span> <" + colorScale["minimum"] + "</span>";
+        html += "<span>" + colorScale.minimum + "</span>";
+        html += "<span>" + (colorScale.average_limits.low - 1) + "</span>";
       } else if (categories.length == (i + 1)){
-        html += "<span> >" + colorScale["maximum"] + "</span>";
+        html += "<span>" + (colorScale.average_limits.high + 1) + "</span>";
+        html += "<span>" + colorScale.maximum + "</span>";
       }
 
       html += "</div>"
