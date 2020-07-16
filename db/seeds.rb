@@ -291,35 +291,23 @@ end
 [
   {
     slug: "crecimiento-economico",
-    description: "Tasa de crecimiento económico per cápita promedio anual (%)",
-    tooltip: "Crecimiento del PIB real de 1990 a 2016. <br><br><b>Fuente</b>: INEGI",
+    description: "Crecimiento económico por habitante (%), 1990-2016",
+    tooltip: "Tasa de crecimiento del Producto Interno por Entidad Federativa (PIBE) per cápita; en términos reales, por ciento anual promedio para 1990-2016. <br><br><b>Fuente</b>: INEGI",
   },
   {
     slug: "hacinamiento-vivienda",
-    description: "Hacinamiento en vivienda (número de personas/número de cuartos)",
-    tooltip: <<~TEXT,
-      Relación entre el número de personas en una vivienda o casa y el espacio
-      o número de cuartos disponibles. <br><br><b>Fuente</b>: XI censo general
-      de población y vivienda, 1990, México, INEGI, 1990.
-    TEXT
+    description: "Hacinamiento en las viviendas, promedio, 1990",
+    tooltip: "Número de miembros del hogar por cada cuarto en la vivienda; promedio por entidad federativa en 1990. <br><br><b>Fuente</b>: Censo General de Población y Vivienda 1990.",
   },
   {
     slug: "poblacion-sin-educacion",
-    description: "Población sin educación primaria (%)",
-    tooltip: <<~TEXT,
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-      tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
-      XI censo general de población y vivienda, 1990, México, INEGI, 1990.
-    TEXT
+    description: "Población sin educación primaria completa (%), 1990",
+    tooltip: "Porcentaje de la población de la entidad federativa que no completó la educación primaria en 1990. <br><br><b>Fuente</b>: Censo General de Población y Vivienda 1990.",
   },
   {
     slug: "embarazo-juvenil",
-    description: "Tasa de embarazo juvenil, 15-19 años (cada 1000 mujeres)",
-    tooltip: <<~TEXT,
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-      tempor incidunt ut labore et dolore magna aliqua.<br><br><b>Fuente</b>:
-      XI censo general de población y vivienda, 1990, México, INEGI, 1990.
-    TEXT
+    description: "Tasa de embarazo juvenil, 15-19 años (por cada mil), 1990",
+    tooltip: "Número de mujeres entre 15 y 19 años que están embarazadas, por cada mil mujeres en ese rango de edad en 1990. <br><br><b>Fuente</b>: Censo General de Población y Vivienda 1990.",
   },
 ].each { |indicator| Indicator.create!(indicator) }
 # rubocop:enable Layout/LineLength

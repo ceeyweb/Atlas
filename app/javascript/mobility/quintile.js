@@ -141,7 +141,7 @@ export default class MobilityQuintile {
 
   tooltip(text) {
     return $("<span></span>", {
-      "class": "upward-mobility__i upward-mobility__i--link float-right",
+      "class": "upward-mobility__i float-right",
       "data-toggle": "tooltip",
       "data-placement": "auto",
       "data-html": "true",
