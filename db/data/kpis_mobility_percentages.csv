@@ -2,126 +2,96 @@
 Nacional,Total,saludpersq1,55.45
 Nacional,Total,saludpersq5,48.38
 Nacional,Total,saludmov1a5,1.84
-Nacional,Total,educpersq1,4.13
+Nacional,Total,educpersq1,36.78
 Nacional,Total,educpersq5,63.51
 Nacional,Total,educmov1a5,8.95
 Nacional,Total,ocuppersq1,22.16
 Nacional,Total,ocuppersq5,34.09
 Nacional,Total,ocupmov1a5,3.25
-Nacional,Total,riqpersq1,46.97
-Nacional,Total,riqpersq5,53.66
-Nacional,Total,riqmov1a5,3.34
+Nacional,Total,riqpersq1,49.04
+Nacional,Total,riqpersq5,56.87
+Nacional,Total,riqmov1a5,3.42
 Nacional,Norte,saludpersq1,57.65
 Nacional,Norte,saludpersq5,43.21
 Nacional,Norte,saludmov1a5,2.75
-Nacional,Norte,educpersq1,1.9
+Nacional,Norte,educpersq1,28.77
 Nacional,Norte,educpersq5,52.55
 Nacional,Norte,educmov1a5,10.45
 Nacional,Norte,ocuppersq1,17.7
 Nacional,Norte,ocuppersq5,25.59
 Nacional,Norte,ocupmov1a5,5.75
-Nacional,Norte,riqpersq1,24.65
-Nacional,Norte,riqpersq5,49.92
-Nacional,Norte,riqmov1a5,5.76
+Nacional,Norte,riqpersq1,23.35
+Nacional,Norte,riqpersq5,49.1
+Nacional,Norte,riqmov1a5,7.83
 Nacional,Norte Occidente,saludpersq1,45.42
 Nacional,Norte Occidente,saludpersq5,53.48
 Nacional,Norte Occidente,saludmov1a5,3.14
-Nacional,Norte Occidente,educpersq1,2.3
+Nacional,Norte Occidente,educpersq1,35.93
 Nacional,Norte Occidente,educpersq5,65.07
 Nacional,Norte Occidente,educmov1a5,10.36
 Nacional,Norte Occidente,ocuppersq1,25.36
 Nacional,Norte Occidente,ocuppersq5,23.89
 Nacional,Norte Occidente,ocupmov1a5,4.16
-Nacional,Norte Occidente,riqpersq1,25.11
-Nacional,Norte Occidente,riqpersq5,43.49
-Nacional,Norte Occidente,riqmov1a5,6.12
+Nacional,Norte Occidente,riqpersq1,26.47
+Nacional,Norte Occidente,riqpersq5,45.51
+Nacional,Norte Occidente,riqmov1a5,5.18
 Nacional,Centro Norte,saludpersq1,54.96
 Nacional,Centro Norte,saludpersq5,49.68
 Nacional,Centro Norte,saludmov1a5,1.63
-Nacional,Centro Norte,educpersq1,3.43
+Nacional,Centro Norte,educpersq1,43.83
 Nacional,Centro Norte,educpersq5,62.59
 Nacional,Centro Norte,educmov1a5,8.3
 Nacional,Centro Norte,ocuppersq1,21.4
 Nacional,Centro Norte,ocuppersq5,28.85
 Nacional,Centro Norte,ocupmov1a5,3.15
-Nacional,Centro Norte,riqpersq1,30.94
-Nacional,Centro Norte,riqpersq5,47.07
-Nacional,Centro Norte,riqmov1a5,3.4
+Nacional,Centro Norte,riqpersq1,29.35
+Nacional,Centro Norte,riqpersq5,49.45
+Nacional,Centro Norte,riqmov1a5,3.2
 Nacional,Centro,saludpersq1,51.48
 Nacional,Centro,saludpersq5,53.58
 Nacional,Centro,saludmov1a5,1.26
-Nacional,Centro,educpersq1,2.43
+Nacional,Centro,educpersq1,30.07
 Nacional,Centro,educpersq5,67.82
 Nacional,Centro,educmov1a5,9.31
 Nacional,Centro,ocuppersq1,19.58
 Nacional,Centro,ocuppersq5,38.57
 Nacional,Centro,ocupmov1a5,4.7
-Nacional,Centro,riqpersq1,40.43
-Nacional,Centro,riqpersq5,62.48
-Nacional,Centro,riqmov1a5,4.71
+Nacional,Centro,riqpersq1,37.58
+Nacional,Centro,riqpersq5,65.25
+Nacional,Centro,riqmov1a5,3.98
 Nacional,Sur,saludpersq1,63.62
 Nacional,Sur,saludpersq5,35.09
 Nacional,Sur,saludmov1a5,1.91
-Nacional,Sur,educpersq1,8.01
+Nacional,Sur,educpersq1,44.97
 Nacional,Sur,educpersq5,61.63
 Nacional,Sur,educmov1a5,7.87
 Nacional,Sur,ocuppersq1,24.38
 Nacional,Sur,ocuppersq5,29.91
 Nacional,Sur,ocupmov1a5,1.65
-Nacional,Sur,riqpersq1,62.09
-Nacional,Sur,riqpersq5,41.02
-Nacional,Sur,riqmov1a5,1.71
+Nacional,Sur,riqpersq1,66.72
+Nacional,Sur,riqpersq5,58.24
+Nacional,Sur,riqmov1a5,2.29
 Mujer,Total,saludpersq1,42.39
 Mujer,Total,saludpersq5,83.28
 Mujer,Total,saludmov1a5,3.38
-Mujer,Total,educpersq1,8.69
+Mujer,Total,educpersq1,38.68
 Mujer,Total,educpersq5,60.63
-Mujer,Total,educmov1a5,4.42
+Mujer,Total,educmov1a5,7.25
 Mujer,Total,ocuppersq1,8.41
 Mujer,Total,ocuppersq5,32.76
 Mujer,Total,ocupmov1a5,2.03
-Mujer,Total,riqpersq1,47.36
-Mujer,Total,riqpersq5,50.44
-Mujer,Total,riqmov1a5,2.05
-Mujer,Norte,saludpersq1,42.09
-Mujer,Norte,saludpersq5,72.98
-Mujer,Norte,saludmov1a5,5.6
-Mujer,Norte Occidente,saludpersq1,35.2
-Mujer,Norte Occidente,saludpersq5,87.63
-Mujer,Norte Occidente,saludmov1a5,5.75
-Mujer,Centro Norte,saludpersq1,43.55
-Mujer,Centro Norte,saludpersq5,91.22
-Mujer,Centro Norte,saludmov1a5,2.85
-Mujer,Centro,saludpersq1,38.65
-Mujer,Centro,saludpersq5,87.52
-Mujer,Centro,saludmov1a5,2.27
-Mujer,Sur,saludpersq1,50.05
-Mujer,Sur,saludpersq5,72.11
-Mujer,Sur,saludmov1a5,3.53
+Mujer,Total,riqpersq1,48.98
+Mujer,Total,riqpersq5,55.77
+Mujer,Total,riqmov1a5,2.58
 Hombre,Total,saludpersq1,70.86
 Hombre,Total,saludpersq5,16.17
 Hombre,Total,saludmov1a5,0.03
-Hombre,Total,educpersq1,7.04
+Hombre,Total,educpersq1,34.6
 Hombre,Total,educpersq5,66.06
-Hombre,Total,educmov1a5,5.9
+Hombre,Total,educmov1a5,10.9
 Hombre,Total,ocuppersq1,29.61
 Hombre,Total,ocuppersq5,34.97
 Hombre,Total,ocupmov1a5,3.91
-Hombre,Total,riqpersq1,46.49
-Hombre,Total,riqpersq5,56.5
-Hombre,Total,riqmov1a5,4.91
-Hombre,Norte,saludpersq1,72.64
-Hombre,Norte,saludpersq5,15.72
-Hombre,Norte,saludmov1a5,0
-Hombre,Norte Occidente,saludpersq1,56.01
-Hombre,Norte Occidente,saludpersq5,16.77
-Hombre,Norte Occidente,saludmov1a5,0.44
-Hombre,Centro Norte,saludpersq1,70.22
-Hombre,Centro Norte,saludpersq5,14.36
-Hombre,Centro Norte,saludmov1a5,0
-Hombre,Centro,saludpersq1,67.54
-Hombre,Centro,saludpersq5,20.81
-Hombre,Centro,saludmov1a5,0
-Hombre,Sur,saludpersq1,79.7
-Hombre,Sur,saludpersq5,5.07
-Hombre,Sur,saludmov1a5,0
+Hombre,Total,riqpersq1,49.12
+Hombre,Total,riqpersq5,57.81
+Hombre,Total,riqmov1a5,4.47
