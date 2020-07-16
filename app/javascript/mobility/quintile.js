@@ -139,15 +139,13 @@ export default class MobilityQuintile {
     $("[data-toggle='tooltip']").tooltip();
   }
 
-  tooltip(content) {
-    return $("<a></a>", {
-      "href": content.url,
-      "target": "_blank",
+  tooltip(text) {
+    return $("<span></span>", {
       "class": "upward-mobility__i upward-mobility__i--link float-right",
       "data-toggle": "tooltip",
       "data-placement": "auto",
       "data-html": "true",
-      "title": content.text,
+      "title": text,
     }).text("i");
   }
 }

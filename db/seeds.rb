@@ -20,87 +20,86 @@ Region.create_or_find_by(id: 0) do |gender|
 end
 
 [
-  { description: "Norte", color: '#145861' },
-  { description: "Norte Occidente", color: '#41939c' },
-  { description: "Centro Norte", color: '#959696' },
-  { description: "Centro", color: '#cdcbca' },
-  { description: "Sur", color: '#f58531' }
+  { description: "Norte", color: "#145861" },
+  { description: "Norte Occidente", color: "#41939c" },
+  { description: "Centro Norte", color: "#959696" },
+  { description: "Centro", color: "#cdcbca" },
+  { description: "Sur", color: "#f58531" },
 ].each do |region|
   Region.create_or_find_by!(region)
 end
 
 {
   "Norte": [
-    { slug: "baja-california", name: 'Baja California' },
-    { slug: "sonora", name: 'Sonora' },
-    { slug: "chihuahua", name: 'Chihuahua' },
-    { slug: "coahuila", name: 'Coahuila' },
-    { slug: "nuevo-leon", name: 'Nuevo león' },
-    { slug: "tamaulipas", name: 'Tamaulipas' }
+    { slug: "baja-california", name: "Baja California" },
+    { slug: "sonora", name: "Sonora" },
+    { slug: "chihuahua", name: "Chihuahua" },
+    { slug: "coahuila", name: "Coahuila" },
+    { slug: "nuevo-leon", name: "Nuevo león" },
+    { slug: "tamaulipas", name: "Tamaulipas" },
   ],
   "Norte Occidente": [
-    { slug: "baja-california-sur", name: 'Baja California Sur' },
-    { slug: "sinaloa", name: 'Sinaloa' },
-    { slug: "durango", name: 'Durango' },
-    { slug: "zacatecas", name: 'Zacatecas' },
-    { slug: "nayarit", name: 'Nayarit' }
+    { slug: "baja-california-sur", name: "Baja California Sur" },
+    { slug: "sinaloa", name: "Sinaloa" },
+    { slug: "durango", name: "Durango" },
+    { slug: "zacatecas", name: "Zacatecas" },
+    { slug: "nayarit", name: "Nayarit" },
   ],
   "Centro Norte": [
-    { slug: "san-luis-potosi", name: 'San Luis Potosí' },
-    { slug: "aguascalientes", name: 'Aguascalientes' },
-    { slug: "jalisco", name: 'Jalisco' },
-    { slug: "colima", name: 'Colima' },
-    { slug: "michoacan", name: 'Michoacán' }
+    { slug: "san-luis-potosi", name: "San Luis Potosí" },
+    { slug: "aguascalientes", name: "Aguascalientes" },
+    { slug: "jalisco", name: "Jalisco" },
+    { slug: "colima", name: "Colima" },
+    { slug: "michoacan", name: "Michoacán" },
   ],
   "Centro": [
-    { slug: "guanajuato", name: 'Guanajuato' },
-    { slug: "queretaro", name: 'Querétaro' },
-    { slug: "hidalgo", name: 'Hidalgo' },
-    { slug: "estado-de-mexico", name: 'Estado de México' },
-    { slug: "cmdx", name: 'Ciudad de México' },
-    { slug: "morelos", name: 'Morelos' },
-    { slug: "tlaxcala", name: 'Tlaxcala' },
-    { slug: "puebla", name: 'Puebla' }
+    { slug: "guanajuato", name: "Guanajuato" },
+    { slug: "queretaro", name: "Querétaro" },
+    { slug: "hidalgo", name: "Hidalgo" },
+    { slug: "estado-de-mexico", name: "Estado de México" },
+    { slug: "cmdx", name: "Ciudad de México" },
+    { slug: "morelos", name: "Morelos" },
+    { slug: "tlaxcala", name: "Tlaxcala" },
+    { slug: "puebla", name: "Puebla" },
   ],
   "Sur": [
-    { slug: "veracruz", name: 'Veracruz' },
-    { slug: "guerrero", name: 'Guerrero' },
-    { slug: "oaxaca", name: 'Oaxaca' },
-    { slug: "tabasco", name: 'Tabasco' },
-    { slug: "chiapas", name: 'Chiapas' },
-    { slug: "campeche", name: 'Campeche' },
-    { slug: "yucatan", name: 'Yucatán' },
-    { slug: "quintana-roo", name: 'Qintana Roo' }
-  ]
+    { slug: "veracruz", name: "Veracruz" },
+    { slug: "guerrero", name: "Guerrero" },
+    { slug: "oaxaca", name: "Oaxaca" },
+    { slug: "tabasco", name: "Tabasco" },
+    { slug: "chiapas", name: "Chiapas" },
+    { slug: "campeche", name: "Campeche" },
+    { slug: "yucatan", name: "Yucatán" },
+    { slug: "quintana-roo", name: "Qintana Roo" },
+  ],
 }.each do |key, states|
   region = Region.find_by!(description: key)
-  states.each{ |state| State.create!(**state, region: region) }
+  states.each { |state| State.create!(**state, region: region) }
 end
-
 
 # Categories
 categories = {}
 
 [
   {
-    slug: 'socioeconomica',
-    title: 'SOCIOECONÓMICA',
-    description: 'Resume el bienestar material acumulado de las personas con relación al de su hogar de origen. El nivel de riqueza refleja qué tanto los hogares pueden absorber choques adversos o generar planes de inversión a futuro.'
+    slug: "socioeconomica",
+    title: "SOCIOECONÓMICA",
+    description: "mide la relación que existe entre el logro socioeconómico de las personas respecto a la condición socioeconómica de su hogar de origen. A partir de este análisis se ofrece un resultado global sobre la movilidad social que captura: a) nivel educativo; b) bienestar material con base en activos y servicios del hogar y c) nivel de hacinamiento.",
   },
   {
-    slug: 'educacion',
-    title: 'EDUCACIÓN',
-    description: 'Mide la relación que existe entre la escolaridad de los padres y el logro educativo de los hijos. La educación refleja el potencial en el mercado laboral de las personas.'
+    slug: "educacion",
+    title: "EDUCACIÓN",
+    description: "mide la relación que existe entre la escolaridad de los padres y el logro educativo de los hijos. La educación es uno de los indicadores que permite inferir el potencial de ingreso permanente de las personas. Además, refleja —aunque no de manera exclusiva— las oportunidades que tendrá la persona desde la infancia hasta la juventud.",
   },
   {
-    slug: 'salud',
-    title: 'SALUD',
-    description: 'La movilidad intergeneracional en salud es la relación que existe entre el logro en salud de los hijos respecto al logro en salud de sus padres.',
+    slug: "salud",
+    title: "SALUD",
+    description: "mide la relación que existe entre el logro en salud de los hijos respecto a el logro en salud de sus padres.",
   },
   {
-    slug: 'ocupacional',
-    title: 'OCUPACIÓN',
-    description: 'Identifica la facilidad con la que los hijos pueden ascender hasta el estrato más alto respecto a la ocupación de sus padres. La ocupación indica la realización socioeconómica de las personas.'
+    slug: "ocupacional",
+    title: "OCUPACIÓN",
+    description: "identifica la facilidad con la que las personas pueden ascender hasta el estrato ocupacional más alto respecto a la ocupación de sus padres. La ocupación, a diferencia de la educación, no indica el potencial en el mercado laboral de las personas, sino su resultado. Además, refleja las oportunidades que brindan, tanto el entorno, como los mercados laborales mismos.",
   },
 ].each do |category|
   categories[category[:slug]] = Category.find_or_create_by!(category)
@@ -111,7 +110,7 @@ end
   {
     slug: "saludpersq1",
     name: "Persistencia quintil I",
-    description: "La persistencia en el quintil I significa que las personas que nacen en el 20% más bajo de salud, al igual que sus padres, permanecen en el quintil más bajo de salud.",
+    description: "Porcentaje de personas que al igual que sus padres permanecieron en el quintil más bajo del índice de salud.",
     scale: {
       minimum: 42,
       maximum: 71,
@@ -125,7 +124,7 @@ end
   {
     slug: "saludpersq5",
     name: "Persistencia quintil V",
-    description: "La persistencia en el quintil V significa que las personas que nacen en el 20% más alto de salud, al igual que sus padres, permanecen en el quintil más alto de salud.",
+    description: "Porcentaje de personas que al igual que sus padres permanecieron en el quintil más alto del índice de salud.",
     scale: {
       minimum: 16,
       maximum: 84,
@@ -139,7 +138,7 @@ end
   {
     slug: "saludmov1a5",
     name: "Movilidad del quintil I a quintil V",
-    description: "La movilidad del quintil I al V, representa el porcentaje de personas que pasaron del 20% más bajo de salud, al 20% más alto de salud.",
+    description: "Porcentaje de personas que nacieron en hogares del quintil I del índice de salud y alcanzaron el quintil V.",
     scale: {
       minimum: 0,
       maximum: 4,
@@ -153,7 +152,7 @@ end
   {
     slug: "educpersq1",
     name: "Persistencia nivel educativo primaria o menos",
-    description: "Porcentaje de personas que al igual que su padre continúa sin estudios.",
+    description: "Porcentaje de personas que al igual que sus padres estudiaron hasta la primaria o menos.",
     scale: {
       minimum: 28,
       maximum: 45,
@@ -181,7 +180,7 @@ end
   {
     slug: "educmov1a5",
     name: "Movilidad del nivel educativo más bajo al más alto",
-    description: "Porcentaje de personas que cuentan con carrera profesional y que su padre no cuenta con estudios.",
+    description: "Porcentaje de personas que cuentan con carrera profesional y cuyos padres tienen primaria o menos.",
     scale: {
       minimum: 7,
       maximum: 11,
@@ -195,7 +194,7 @@ end
   {
     slug: "ocuppersq1",
     name: "Persistencia trabajo agrícola",
-    description: "Porcentaje de personas que al igual que su padre tiene un trabajo agrícola.",
+    description: "Porcentaje de personas que al igual que sus padres tienen un trabajo agrícola.",
     scale: {
       minimum: 8,
       maximum: 30,
@@ -209,7 +208,7 @@ end
   {
     slug: "ocuppersq5",
     name: "Persistencia trabajo no manual de alta calificación",
-    description: "Porcentaje de personas que al igual que su padre cuentan con trabajo no manual de alta calificación.",
+    description: "Porcentaje de personas que al igual que sus padres tienen un trabajo no manual de alta calificación.",
     scale: {
       minimum: 23,
       maximum: 39,
@@ -223,7 +222,7 @@ end
   {
     slug: "ocupmov1a5",
     name: "Movilidad de la ocupación menos calificada a la más calificada",
-    description: "Porcentaje de personas que cuentan con trabajo no manual de alta calificación y que su padre contaba con trabajo agrícola.",
+    description: "Porcentaje de personas que tienen un trabajo no manual de alta calificación y cuyos padres tenían un trabajo agrícola.",
     scale: {
       minimum: 1,
       maximum: 6,
@@ -237,7 +236,7 @@ end
   {
     slug: "riqpersq1",
     name: "Persistencia quintil I",
-    description: "Porcentaje de personas que al igual que sus padres permanecen al quintil más bajo del índice de riqueza.",
+    description: "Porcentaje de personas que al igual que sus padres permanecieron en el quintil más bajo del índice socioeconómico.",
     scale: {
       minimum: 23,
       maximum: 67,
@@ -251,7 +250,7 @@ end
   {
     slug: "riqpersq5",
     name: "Persistencia quintil V",
-    description: "Porcentaje de personas que al igual que sus padres permanecen al quintil más alto del índice de riqueza.",
+    description: "Porcentaje de personas que al igual que sus padres permanecieron en el quintil más alto del índice de socioeconómico.",
     scale: {
       minimum: 45,
       maximum: 66,
@@ -265,7 +264,7 @@ end
   {
     slug: "riqmov1a5",
     name: "Movilidad del quintil I a quintil V",
-    description: "Porcentaje de personas que nacieron en hogares del quintil I del índice de riqueza y alcanzaron el quintil V.",
+    description: "Porcentaje de personas que nacieron en hogares del quintil I del índice socioeconómico y alcanzaron el quintil V.",
     scale: {
       minimum: 2,
       maximum: 8,

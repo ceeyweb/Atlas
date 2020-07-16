@@ -1,12 +1,22 @@
 class Quintile < ApplicationRecord
-  CATEGORIES_WITH_TOOLTIP = %w[socioeconomica educacion ocupacion].freeze
-  TOOLTIP_URL = "https://ceey.org.mx/contenido/que-hacemos/emovi-pre/".freeze
-  TOOLTIP = <<~TOOLTIP.freeze
-    Para el análisis regional se considera la región de residencia a los 14
-    años de edad. La ESRU-EMOVI 2017 es representativa para mujeres y hombres
-    entre 25 y 64 años a nivel nacional, para la CDMX y cinco regiones del
-    país.
-  TOOLTIP
+  TOOLTIPS = {
+    socioeconomica: "Se genera un índice socioeconómico para cada generación
+      con base en el análisis de componentes principales. Este índice considera
+      las variables de nivel educativo, quintiles del índice de riqueza y
+      hacinamiento en el hogar. Posteriormente, se divide a la población en
+      cinco grupos socioeconómicos (quintiles), que van del de menor (quintil I)
+      al de mayor estatus (quintil V). Cada grupo o quintil corresponde al 20%
+      de la población según el índice socioeconómico para cada generación.",
+    educacion: "Se consideran cuatro categorías educativas para ambas
+      generaciones: a) primaria completa o menos (que incluye a la población
+      sin estudios), b) secundaria completa, c) preparatoria completa y d)
+      licenciatura o posgrado.",
+    ocupacional: "Se consideran seis categorías ocupacionales para ambas
+      generaciones. En particular, la categoría de trabajo agrícola incluye a
+      asalariados y pequeños propietarios. Mientras que las ocupaciones no
+      manuales de alta calificación incluyen altos directivos, grandes
+      empleadores, u ocupaciones que requieran una carrera profesional.",
+  }.freeze
 
   belongs_to :category
   belongs_to :color_scale
@@ -32,19 +42,11 @@ class Quintile < ApplicationRecord
       title: name,
       description: description,
       color_scale: color_scale.to_h,
-      tooltip: tooltip,
+      tooltip: TOOLTIPS[category.slug.to_sym],
       category: {
         title: category.title,
         description: category.description,
       },
     }
-  end
-
-  private
-
-  def tooltip
-    if CATEGORIES_WITH_TOOLTIP.include?(category.slug)
-      { text: TOOLTIP, url: TOOLTIP_URL }
-    end
   end
 end
