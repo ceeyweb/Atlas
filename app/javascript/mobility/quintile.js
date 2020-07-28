@@ -37,7 +37,7 @@ export default class MobilityQuintile {
     $(document).on("ajax:success", this.quintileSelectors, function(event) {
       const [data, status, xhr] = event.detail;
 
-      this.updateHeader(data.category.title, data.category.description);
+      this.updateHeader(data.category.long_title, data.category.description);
       this.updateQuintile(data.title, data.description, data.tooltip);
       this.updateRegionKpis(data.regions);
       this.updateGenderKpis(data.genders);

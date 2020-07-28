@@ -45,6 +45,7 @@ class Quintile < ApplicationRecord
       tooltip: TOOLTIPS[category.slug.to_sym],
       category: {
         title: category.title,
+        long_title: category.long_title,
         description: category.description,
       },
     }

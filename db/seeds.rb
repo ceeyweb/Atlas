@@ -84,21 +84,25 @@ categories = {}
   {
     slug: "socioeconomica",
     title: "SOCIOECONÓMICA",
+    long_title: "MOVILIDAD SOCIOECONÓMICA",
     description: "mide la relación que existe entre el logro socioeconómico de las personas respecto a la condición socioeconómica de su hogar de origen. A partir de este análisis se ofrece un resultado global sobre la movilidad social que captura: a) nivel educativo; b) bienestar material con base en activos y servicios del hogar y c) nivel de hacinamiento.",
   },
   {
     slug: "educacion",
     title: "EDUCACIÓN",
+    long_title: "MOVILIDAD EDUCATIVA",
     description: "mide la relación que existe entre la escolaridad de los padres y el logro educativo de los hijos. La educación es uno de los indicadores que permite inferir el potencial de ingreso permanente de las personas. Además, refleja —aunque no de manera exclusiva— las oportunidades que tendrá la persona desde la infancia hasta la juventud.",
   },
   {
     slug: "salud",
     title: "SALUD",
+    long_title: "MOVILIDAD EN SALUD",
     description: "mide la relación que existe entre el logro en salud de los hijos respecto a el logro en salud de sus padres.",
   },
   {
     slug: "ocupacional",
     title: "OCUPACIÓN",
+    long_title: "MOVILIDAD OCUPACIONAL",
     description: "identifica la facilidad con la que las personas pueden ascender hasta el estrato ocupacional más alto respecto a la ocupación de sus padres. La ocupación, a diferencia de la educación, no indica el potencial en el mercado laboral de las personas, sino su resultado. Además, refleja las oportunidades que brindan, tanto el entorno, como los mercados laborales mismos.",
   },
 ].each do |category|
