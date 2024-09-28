@@ -1,69 +1,83 @@
 <% provide(:title, "MOVILIDAD SOCIAL INTERGENERACIONAL EN:") %>
 
-<div class="mobility-menu">
+<div class="row mt-4 text-center">
   <% Category.all.each do |category| %>
-    <div class="mobility-dropdown">
-      <button class="mobility-dropwdown__button" data-behavior="mobility-category-button"><%= category.title %></button>
-      <div class="mobility-dropdown__content">
-        <% category.quintiles.each do |quintile| %>
-          <%= link_to quintile.name, mobility_path(slug: quintile.slug),
-                      remote: true, "data-behavior": "mobility-quintile-selector" %>
-        <% end %>
+    <div class="col p-2">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-top" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= category.title %>
+        </button>
+        <div class="dropdown-menu">
+          <% category.quintiles.each do |quintile| %>
+            <%= link_to quintile.name, mobility_path(slug: quintile.slug), "class": "dropdown-item",
+                        remote: true, "data-behavior": "mobility-quintile-selector" %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="mobility-category">
+<div class="container-fluid mt-4">
   <div class="mobility-category__description" data-behavior="mobility-category-description">
   </div>
 </div>
 
-<div class="mobility-content">
-  <div class="legends-container">
-    <div class="mobility-quintile">
-      <div class="mobility-quintile__title" data-behavior="mobility-quintile-title"></div>
-      <div class="mobility-quintile__description" data-behavior="mobility-quintile-description"></div>
-      <div class="mobility-quintile__kpis"><ul data-behavior="mobility-kpis-gender"></ul></div>
-      <div class="mobility-quintile__color-scale" data-behavior="mobility-kpis-color-scale"></div>
-    </div>
-    <div class="mobility-regions">
-      <div class="mobility-region">
-        <div class="mobility-region__color norte"></div>
-        <div class="mobility-region__title">Norte</div>
-      </div>
-      <div class="mobility-region">
-        <div class="mobility-region__color norte-occidente"></div>
-        <div class="mobility-region__title">Norte-Occidente</div>
-      </div>
-      <div class="mobility-region">
-        <div class="mobility-region__color centro-norte"></div>
-        <div class="mobility-region__title">Centro-Norte</div>
-      </div>
-      <div class="mobility-region">
-        <div class="mobility-region__color centro"></div>
-        <div class="mobility-region__title">Centro</div>
-      </div>
-      <div class="mobility-region">
-        <div class="mobility-region__color sur"></div>
-        <div class="mobility-region__title">Sur</div>
-      </div>
-    </div>
-    <div class="mobility-notes">
-      <p>Fuente: <a href="https://ceey.org.mx/contenido/que-hacemos/emovi-pre/" target="_blank">ESRU-EMOVI 2017</a>.
-         En el análisis regional se considera la región de residencia a los 14 años de edad.</p>
-    </div>
-  </div>
+<div class="container-fluid">
 
-  <div class="map-container">
-    <div class="mobility-map" data-behavior="mobility-kpis-region">
-      <div class="mobility-map__map"></div>
-      <hr/>
+  <div class="mobility-content row">
+    <div class="col-md-3">
+      <div class="legends-container">
+        <div class="mobility-quintile">
+          <div class="mobility-quintile__title" data-behavior="mobility-quintile-title"></div>
+          <div class="mobility-quintile__description" data-behavior="mobility-quintile-description"></div>
+          <div class="mobility-quintile__kpis"><ul data-behavior="mobility-kpis-gender"></ul></div>
+          <div class="mobility-quintile__color-scale" data-behavior="mobility-kpis-color-scale"></div>
+        </div>
+        <div class="mobility-regions">
+          <div class="mobility-region">
+            <div class="mobility-region__color norte"></div>
+            <div class="mobility-region__title">Norte</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color norte-occidente"></div>
+            <div class="mobility-region__title">Norte-Occidente</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color centro-norte"></div>
+            <div class="mobility-region__title">Centro-Norte</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color centro"></div>
+            <div class="mobility-region__title">Centro</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color sur"></div>
+            <div class="mobility-region__title">Sur</div>
+          </div>
+        </div>
+        <div class="mobility-notes">
+          <p>Fuente: <a href="https://ceey.org.mx/contenido/que-hacemos/emovi-pre/" target="_blank">ESRU-EMOVI 2017</a>.
+            En el análisis regional se considera la región de residencia a los 14 años de edad.
+            <div data-behavior="mobility-quintile-publication"></div>
+          </p>
+        </div>
+      </div>
+    </div>
 
-      <div class="map-actions">
-        <a href="files/MOV_SOC_REGIONAL.xlsx">
-          <button class="map-actions__button" type="button"> DESCARGA </button>
-        </a>
+
+    <div class="col col-md-9">
+      <div class="container map-container">
+        <div class="mobility-map" data-behavior="mobility-kpis-region">
+          <div class="mobility-map__map"></div>
+          <hr/>
+
+          <div class="map-actions">
+            <a href="files/MOV_SOC_REGIONAL.xlsx">
+              <button class="map-actions__button" type="button"> DESCARGA </button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

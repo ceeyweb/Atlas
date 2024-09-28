@@ -24,6 +24,7 @@ export default class MobilityQuintile {
     this.kpisRegion          = $("[data-behavior='mobility-kpis-region']");
     this.kpisGender          = $("[data-behavior='mobility-kpis-gender']");
     this.kpisColorScale      = $("[data-behavior='mobility-kpis-color-scale']");
+    this.quintilePublication = $("[data-behavior='mobility-quintile-publication']");
 
     // dynamic attributes (references only)
     this.quintileSelectors   = "[data-behavior='mobility-quintile-selector']";
@@ -42,6 +43,7 @@ export default class MobilityQuintile {
       this.updateRegionKpis(data.regions);
       this.updateGenderKpis(data.genders);
       this.updateKpisColorScale(data.color_scale);
+      this.updatePublication(data.publication);
     }.bind(this));
 
     $(this.quintileSelectors).click(function (event) {
@@ -147,5 +149,9 @@ export default class MobilityQuintile {
       "data-html": "true",
       "title": text,
     }).text("i");
+  }
+
+  updatePublication(publication) {
+    this.quintilePublication.html("<a href='" + publication + "' target='_blank'>Consultar Publicación</a>")
   }
 }

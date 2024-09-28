@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["description"], name: "index_genders_on_description", unique: true
   end
 
-  create_table "indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.string "description", null: false
     t.string "tooltip"
@@ -71,20 +71,20 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["description"], name: "index_regions_on_description", unique: true
   end
 
-  create_table "states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "states", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.bigint "region_id", null: false
     t.string "name"
     t.index ["region_id"], name: "index_states_on_region_id"
   end
 
-  create_table "upward_mobilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "upward_mobilities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.float "value", null: false
     t.index ["state_id"], name: "index_upward_mobilities_on_state_id"
   end
 
-  create_table "upward_mobility_indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "upward_mobility_indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "upward_mobility_id", null: false
     t.bigint "indicator_id", null: false
     t.float "percentage", null: false

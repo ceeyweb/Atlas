@@ -18,6 +18,13 @@ class Quintile < ApplicationRecord
       empleadores, u ocupaciones que requieran una carrera profesional.",
   }.freeze
 
+  PUBLICATIONS =  {
+      socioeconomica: "https://ceey.org.mx/informe-de-movilidad-social-mexico-2019/",
+      educacion: "https://ceey.org.mx/informe-de-movilidad-social-mexico-2019/",
+      ocupacional: "https://ceey.org.mx/informe-de-movilidad-social-mexico-2019/",
+      salud: "https://ceey.org.mx/boletin-ms-en-el-trabajo-compaginado-comprimido/"
+  }.freeze
+
   belongs_to :category
   belongs_to :color_scale
 
@@ -43,6 +50,7 @@ class Quintile < ApplicationRecord
       description: description,
       color_scale: color_scale.to_h,
       tooltip: TOOLTIPS[category.slug.to_sym],
+      publication: PUBLICATIONS[category.slug.to_sym],
       category: {
         title: category.title,
         long_title: category.long_title,

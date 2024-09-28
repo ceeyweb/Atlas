@@ -14,137 +14,224 @@ $teal: rgb(65, 147, 156);
 // other values
 $sidebar-width: 17rem;
 
-body {
-  font-family: $default-font;
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  a {
-    color: $green;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 
-    &:hover {
-      color: $orange;
-      text-decoration: none;
-    }
+}
+@media (max-width: 768px) {
+  .top-title {
+    font-size: 1.5rem !important;
+  }
+  .mobility-category__description {
+    padding: 0rem !important;
+  }
+
+  button.map-actions__button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    float: left;
+  }
+
+  .footer {
+    margin-top: -380px !important; /* negative value of footer height */
+    height: 380px !important;;
+  }
+
+  .dropdown-item {
+    font-size: .75rem !important;
   }
 }
-
-.sidebar {
-  background-color: $gray-light;
-  min-width: $sidebar-width;
-  width: $sidebar-width;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-  text-align: center;
-}
-
-.sidebar__logo {
-  padding: 2rem 1rem 3rem;
-}
-
-.menu {
-  @extend .nav;
-  @extend .flex-column;
-
-  font-family: $header-font;
+.top-nav {
+  background: #0A4F56;
+  color: white;
+  height: 8rem;
+  font-family: "Montserrat";
+  font-size: 2.3rem !important;
   font-weight: 500;
 }
-
-.menu__item {
-  margin-bottom: 1.5rem;
+.btn-top {
+  min-width: 250px !important;
+  border-radius: 0 !important;
+  background: #0A4F56;
 }
-
-.menu__link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: $gray-dark;
+.btn-top, .btn-top:hover, .btn-top:active, .btn-top:visited {
+  background-color: #0A4F56 !important;
 }
-
-.header {
-  height: 8rem;
-  margin-left: $sidebar-width;
-  background-color: $green;
-  display: flex;
-  align-items: center;
-  padding-left: 3rem;
-
-
-  h1 {
-    color: white;
-    font-family: $header-font;
-    font-size: 2.3rem;
-    font-weight: 500;
-
-  }
-  span {
-    color: $orange;
-  }
-}
-
-.content {
-  padding: .7rem 1rem;
-  margin-left: $sidebar-width;
-}
-
-.content__title {
-  padding: 1.5rem 0;
-  margin-left: 2rem;
-  color: $green-dark;
-  font-family: $header-font;
+.title-text {
+  font-family: "Montserrat";
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: -.05rem;
+  color: #00232c;
+}
+html, body {
+  height: 100%;
 }
 
-.content__body {
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+.footer__privacy {
+  color: #959696;
   margin-top: .7rem;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:400px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
-  font-size: .7em;
-  margin-left: $sidebar-width;
-  background-color: $green;
+  position: relative;
+  margin-top: -280px; /* negative value of footer height */
+  height: 280px;
+  clear:both;
+  padding-top:20px;
+  background: $green;
   color: white;
-  padding-top: 1.3rem;
-  padding-bottom: 1rem;
-
-  a {
-    color: white;
-  }
 }
 
-.footer_row {
-  display: flex;
-  flex-wrap: wrap;
+.social-share-button .ssb-icon {
+  background-size: 1.7rem 1.7rem !important;
+  height: 1.7rem !important;
+  width: 1.7rem !important;
+  margin: 1px !important;
 }
 
-.footer__privacy {
-  text-align: center;
-  color: $gray-dark;
-  margin-top: .7rem;
-
-  a {
-    padding-right: 1.5rem;
-    color: $gray-dark;
-
-    &:hover {
-      color: $gray;
-    }
-  }
+.footer a {
+  color: white;
 }
 
-.footer-share-buttons {
-  margin-top: 1rem;
+.footer a:hover {
+  color: $orange;
+  text-decoration: none;
 }
 
-$button-size: 1.7rem;
+.nav-link {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1rem;
+}
 
-.social-share-button {
-  .ssb-icon {
-    background-size: $button-size $button-size !important;
-    height: $button-size !important;
-    width: $button-size !important;
-    margin: 1px !important;
-  }
+.nav-link:hover {
+  color: $orange;
+}
+
+.sidebar .nav-link.active {
+  color: $orange;
 }

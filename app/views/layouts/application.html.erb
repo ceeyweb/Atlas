@@ -1,82 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Atlas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Atlas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link rel="stylesheet"
-          type="text/css"
-          href="//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900" />
-    <link rel="stylesheet"
-          type="text/css"
-          href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900"/>
+  <link rel="stylesheet"
+        type="text/css"
+        href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"/>
 
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "main" %>
-    <%= javascript_pack_tag "mobility" %>
-    <%= javascript_pack_tag "upward_mobility" %>
-  </head>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  <%= javascript_pack_tag "main" %>
+  <%= javascript_pack_tag "mobility" %>
+  <%= javascript_pack_tag "upward_mobility" %>
+</head>
 
-  <body>
-    <section class="sidebar">
-      <div class="sidebar__logo">
-        <%= image_tag("logo-main.png", alt: "Centro de Estudios Espinosa Yglesias", height: 200) %>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<div id="wrap" class="container-fluid">
+  <div id="main" class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <div class="text-center">
+          <%= image_tag("logo-main.png", alt: "Centro de Estudios Espinosa Yglesias", height: 200) %>
+        </div>
+        <ul class="nav flex-column text-center mt-4">
+          <li class="nav-item">
+            <a class="nav-link <%= 'active' if current_page?(root_path) %>" href="<%= root_path %>">
+              Sobre el Atlas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= 'active' if current_page?(mobility_index_path) %>" href="<%= mobility_index_path %>">
+              Movilidad Social por Regiones
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= 'active' if current_page?(upward_mobility_indicator_index_path) %>" href="<%= upward_mobility_indicator_index_path %>">
+              Movilidad Social Ascendente
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="top-nav d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ml-n4 mr-n4">
+        <h1 class="top-title ml-4"><span style="color:#F97635">ATLAS DE </span>MOVILIDAD SOCIAL</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
       </div>
 
-      <ul class="menu">
-        <li class="menu__item">
-          <a href="<%= root_path %>" class="menu__link">Sobre el Atlas</a>
-        </li>
-        <li class="menu__item">
-          <a href="<%= mobility_index_path %>" class="menu__link">Movilidad social por regiones</a>
-        </li>
-        <li class="menu__item">
-          <a href="<%= upward_mobility_indicator_index_path %>" class="menu__link">Movilidad social ascendente</a>
+      <h2 class="title-text"><%= yield(:title) %></h2>
+      <%= yield %>
+    </main>
+  </div>
+
+  <div class="row footer justify-content-center mt-2 p-5" >
+    <div class="col-md-3 offset-md-3">
+      <a href="https://ceey.org.mx/" target="blank">
+        <%= image_tag("logo-white.png", height: 60) %>
+      </a>
+
+      <div class="footer-share-buttons mt-4 ml-5 mb-2">
+        <%= render "shared/social_share_buttons" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <p id="test">CONTACTO</p>
+      <ul class="list-unstyled">
+        <li>Abasolo 152, Del Carmen, Coyoacán</li>
+        <li>C.P. 04100. Ciudad de México</li>
+        <li>Teléfonos: +52 (55) 56625447 / 56622370 / 56608031 / 56608051</li>
+        <li>
+          Email: <a href="mailto:contacto@ceey.org.mx">contacto@ceey.org.mx</a> /
+          <a href="mailto:bolsatrabajo@ceey.org.mx">bolsatrabajo@ceey.org.mx</a>
         </li>
       </ul>
-    </section>
-
-    <section class="header" id="header">
-      <h1><span>ATLAS DE</span> MOVILIDAD SOCIAL</h1>
-    </section>
-
-    <section class="content" id="content">
-      <div class="content__title"><%= yield(:title) %></div>
-      <div class="content__body"><%= yield %></div>
-    </section>
-
-    <section class="footer" id="footer">
-      <div class="footer_row">
-        <div class="offset-1 col-5 text-center">
-          <a href="https://ceey.org.mx/" target="blank">
-            <%= image_tag("logo-white.png", height: 60) %>
-          </a>
-
-          <div class="footer-share-buttons">
-            <%= render "shared/social_share_buttons" %>
-          </div>
-        </div>
-
-        <div class="col-5">
-          <p id="test">CONTACTO</p>
-          <ul class="list-unstyled">
-            <li>Abasolo 152, Del Carmen, Coyoacán</li>
-            <li>C.P. 04100. Ciudad de México</li>
-            <li>Teléfonos: +52 (55) 56625447 / 56622370 / 56608031 / 56608051</li>
-            <li>
-              Email: <a href="mailto:contacto@ceey.org.mx">contacto@ceey.org.mx</a> /
-              <a href="mailto:bolsatrabajo@ceey.org.mx">bolsatrabajo@ceey.org.mx</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <div class="footer__privacy">
-        <%= link_to "Aviso de Privacidad", "#" %> © CEEY @2020
+        <%= link_to "Aviso de Privacidad", "https://ceey.org.mx/pie-de-pagina/aviso-de-privacidad/" %> © CEEY @2020
       </div>
-    </section>
-  </body>
+    </div>
+  </div>
+</div>
+</body>
 </html>

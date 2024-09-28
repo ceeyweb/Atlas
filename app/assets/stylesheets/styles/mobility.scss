@@ -74,7 +74,7 @@ $sur: rgb(245, 133, 49);
 .mobility-category { }
 
 .mobility-category__description{
-  padding: 2rem;
+  padding: 2rem 0;
 
   span {
     font-weight: 600;
@@ -150,8 +150,7 @@ $sur: rgb(245, 133, 49);
 
 .map-container {
   padding: 1rem;
-  width: 45rem;
-  height: 35rem;
+  max-width: 45rem;
 
     hr {
       border: 0.01rem solid $green;
@@ -161,8 +160,6 @@ $sur: rgb(245, 133, 49);
 
 .legends-container {
   background-color: $gray-light;
-  margin-left: 2rem;
-  width: 17rem;
 }
 
 .mobility-regions {

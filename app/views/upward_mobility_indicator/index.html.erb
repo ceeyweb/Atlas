@@ -1,72 +1,76 @@
-<% provide(:title, "Posición socioeconómica de las personas que crecieron en hogares en pobreza, por entidad federativa.") %>
+<% provide(:title, "Posición socioeconómica de las personas que nacieron en hogares en pobreza, según indicador y entidad federativa.") %>
 
-<div class="row">
-  <div class="col-2">
-    <div class="upward-mobility__y-label">
-      Posición socioeconómica
-      <span class="upward-mobility__i"
-            data-toggle="tooltip"
-            data-placement="auto"
-            data-html="true"
-            title="Percentil que ocupan en la distribución del indicador de nivel
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-2 pb-4">
+      <div class="upward-mobility__y-label">
+        Posición socioeconómica alcanzada en la edad adulta
+        <span class="upward-mobility__i"
+              data-toggle="tooltip"
+              data-placement="auto"
+              data-html="true"
+              title="Percentil que ocupan en la distribución del indicador de nivel
                   socioeconómico las personas que crecieron en hogares en pobreza
-                  (sus padres ocuparon el percentil 25). <br><br><b>Fuente</b>: ESRU- EMOVI 2017.">i</span>
-      <span class="upward-mobility__y-description">El punto de partida es el percentil 25.</span>
+                  (sus padres ocuparon el percentil 25). <br><br><b>Fuente</b>: Delajara, Campos y Vélez (2020).">i</span>
+        <span class="upward-mobility__y-description">El punto de partida es el percentil 25.</span>
+        <a href="https://ceey.org.mx/social-mobility-in-mexico-what-can-we-learn-from-its-regional-variation/" target="_blank">Consultar Publicación</a>
+      </div>
     </div>
-  </div>
-  <div class="col-6">
-    <div class="upward-mobility__chart">
-      <canvas data-behavior="upward_mobility_chart_container"></canvas>
+    <div class="col-md-6">
+      <div class="upward-mobility__chart">
+        <canvas data-behavior="upward_mobility_chart_container"></canvas>
+      </div>
     </div>
-    <div class="upward-mobility__x-label">
-      <p>Selecciona el indicador:</p>
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="upward-mobility-legends-container">
-      <div class="mobility-regions">
-        <div class="mobility-region">
-          <div class="mobility-region__color norte"></div>
-          <div class="mobility-region__title">Norte</div>
-        </div>
-        <div class="mobility-region">
-          <div class="mobility-region__color norte-occidente"></div>
-          <div class="mobility-region__title">Norte-Occidente</div>
-        </div>
-        <div class="mobility-region">
-          <div class="mobility-region__color centro-norte"></div>
-          <div class="mobility-region__title">Centro-Norte</div>
-        </div>
-        <div class="mobility-region">
-          <div class="mobility-region__color centro"></div>
-          <div class="mobility-region__title">Centro</div>
-        </div>
-        <div class="mobility-region">
-          <div class="mobility-region__color sur"></div>
-          <div class="mobility-region__title">Sur</div>
+    <div class="col-md-4">
+      <div class="upward-mobility-legends-container">
+        <div class="mobility-regions">
+          <div class="mobility-region">
+            <div class="mobility-region__color norte"></div>
+            <div class="mobility-region__title">Norte</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color norte-occidente"></div>
+            <div class="mobility-region__title">Norte-Occidente</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color centro-norte"></div>
+            <div class="mobility-region__title">Centro-Norte</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color centro"></div>
+            <div class="mobility-region__title">Centro</div>
+          </div>
+          <div class="mobility-region">
+            <div class="mobility-region__color sur"></div>
+            <div class="mobility-region__title">Sur</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-2">
+      <div class="upward-mobility__x-label">
+        <p>Selecciona el indicador:</p>
+      </div>
+      <% Indicator.all.each_with_index do |indicator, i| %>
+        <%= link_to indicator.description, upward_mobility_indicator_path(slug: indicator.slug),
+                    remote: true, "data-behavior": "upward-mobility-indicator-selector",
+                    class: "upward-mobility-indicator" %>
+        <span class="upward-mobility__i"
+              data-toggle="tooltip"
+              data-placement="right"
+              data-html="true"
+              title="<%= indicator.tooltip %>">i</span>
+      <% end %>
+    </div>
+
+    <div class="col-md-2">
+      <a class="upward-mobility__download-link" href="files/MOV_SOC_AS_Y_DET_2020.xlsx">
+        <button class="map-actions__button" type="button"> DESCARGA </button>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="row">
-  <div class="col-6 offset-2">
-    <% Indicator.all.each_with_index do |indicator, i| %>
-      <%= link_to indicator.description, upward_mobility_indicator_path(slug: indicator.slug),
-        remote: true, "data-behavior": "upward-mobility-indicator-selector",
-        class: "upward-mobility-indicator" %>
-      <span class="upward-mobility__i"
-            data-toggle="tooltip"
-            data-placement="right"
-            data-html="true"
-            title="<%= indicator.tooltip %>">i</span>
-    <% end %>
-  </div>
-
-  <div class="col-4">
-    <a class="upward-mobility__download-link" href="files/MOV_SOC_AS_Y_DET_2020.xlsx">
-      <button class="map-actions__button" type="button"> DESCARGA </button>
-    </a>
-  </div>
-</div>
