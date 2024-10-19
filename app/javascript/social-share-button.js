@@ -41,13 +41,13 @@
         case "weibo":
           SocialShareButton.openUrl("http://service.weibo.com/share/share.php?url=" + url + "&type=3&pic=" + img + "&title=" + title + "&appkey=" + appkey, 620, 370);
           break;
-        case "twitter":
+        case "x":
           hashtags = encodeURIComponent(el.getAttribute("data-" + site + "-hashtags") || $parent.getAttribute("data-hashtags") || '');
           via_str = '';
           if (via.length > 0) {
             via_str = "&via=" + via;
           }
-          SocialShareButton.openUrl("https://twitter.com/intent/tweet?url=" + url + "&text=" + title + "&hashtags=" + hashtags + via_str, 650, 300);
+          SocialShareButton.openUrl("https://x.com/intent/tweet?url=" + url + "&text=" + title + "&hashtags=" + hashtags + via_str, 650, 300);
           break;
         case "douban":
           SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=" + url + "&name=" + title + "&image=" + img + "&sel=" + desc, 770, 470);
@@ -141,6 +141,9 @@
           break;
         case "whatsapp_web":
           SocialShareButton.openUrl("https://web.whatsapp.com/send?text=" + title + "%0A" + url);
+        case "instagram":
+          SocialShareButton.openUrl("https://www.instagram.com/ceey_mx");
+          break;
       }
       return false;
     }
