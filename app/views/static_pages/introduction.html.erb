@@ -6,4 +6,24 @@
   <p>En este Atlas presentamos dos análisis de la movilidad social. En la sección de movilidad social por regiones, se muestra tanto la persistencia en los extremos de la escalera social como la frecuencia con la cual las personas que nacen en la parte baja alcanzan la más alta. En la sección de movilidad social ascendente, se indica cuánto avanzaron en cada entidad federativa las personas que crecieron en hogares en pobreza. La principal fuente de información que se utiliza es la Encuesta ESRU de Movilidad Social en México 2017 (ESRU-EMOVI 2017).</p>
 
   <p>Como se muestra en este Atlas, México está todavía lejos de ser un país donde las oportunidades, y por ende las opciones de movilidad social, se repartan de manera equitativa, independientemente del lugar donde se nazca.</p>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="intro-button col-12 col-md-6">
+        <%= link_to(
+          "Movilidad Social",
+          mobility_index_path,
+          class: "intro-button__link",
+        ) %>
+      </div>
+
+      <div class="intro-button col-12 col-md-6">
+        <%= link_to(
+          "Movilidad Social Ascendente",
+          upward_mobility_indicator_index_path,
+          class: "intro-button__link",
+        ) %>
+      </div>
+    </div>
+  </div>
 </div>
