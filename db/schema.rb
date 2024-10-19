@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_07_28_223248) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "categories", charset: "latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.text "description", null: false
     t.string "title"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "color_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "color_scales", charset: "latin1", force: :cascade do |t|
     t.integer "minimum", null: false
     t.integer "maximum", null: false
     t.string "category_one"
@@ -30,18 +30,18 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["minimum", "maximum"], name: "index_color_scales_on_minimum_and_maximum"
   end
 
-  create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "genders", charset: "latin1", force: :cascade do |t|
     t.string "description", null: false
     t.index ["description"], name: "index_genders_on_description", unique: true
   end
 
-  create_table "indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "indicators", charset: "latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.string "description", null: false
     t.string "tooltip"
   end
 
-  create_table "kpis_mobility_percentages", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "kpis_mobility_percentages", id: false, charset: "latin1", force: :cascade do |t|
     t.float "percentage", null: false
     t.bigint "gender_id", null: false
     t.bigint "region_id", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["region_id"], name: "index_kpis_mobility_percentages_on_region_id"
   end
 
-  create_table "quintiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "quintiles", charset: "latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.string "name", null: false
     t.string "description", null: false
@@ -65,26 +65,26 @@ ActiveRecord::Schema.define(version: 2020_07_28_223248) do
     t.index ["slug"], name: "index_quintiles_on_slug", unique: true
   end
 
-  create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "regions", charset: "latin1", force: :cascade do |t|
     t.string "description", null: false
     t.string "color"
     t.index ["description"], name: "index_regions_on_description", unique: true
   end
 
-  create_table "states", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "states", charset: "latin1", force: :cascade do |t|
     t.string "slug", null: false
     t.bigint "region_id", null: false
     t.string "name"
     t.index ["region_id"], name: "index_states_on_region_id"
   end
 
-  create_table "upward_mobilities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "upward_mobilities", charset: "latin1", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.float "value", null: false
     t.index ["state_id"], name: "index_upward_mobilities_on_state_id"
   end
 
-  create_table "upward_mobility_indicators", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "upward_mobility_indicators", charset: "latin1", force: :cascade do |t|
     t.bigint "upward_mobility_id", null: false
     t.bigint "indicator_id", null: false
     t.float "percentage", null: false
