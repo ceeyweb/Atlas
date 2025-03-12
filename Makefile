@@ -20,4 +20,8 @@ dev: ## Build Atlas image for local development (ceey_atlas)
 	@docker-compose -p ceey -f ../docker/development/docker-compose.yml build atlas
 
 prod: ## Build Atlas image for production (ceey/pms)
-	@docker build -f .docker/production/Dockerfile -t ceey/atlas .
+	@docker build -f .docker/production/Dockerfile -t ceeyweb/atlas:$(or $(T),latest) .
+
+deploy: ## Build Atlas image for production and push it to Docker Hub
+	@docker build -f .docker/production/Dockerfile -t ceeyweb/atlas:$(or $(T),latest) .
+	@docker push ceeyweb/atlas:$(or $(T),latest)
