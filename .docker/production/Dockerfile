@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:3.0.3
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -23,7 +23,8 @@ ENV RAILS_SERVE_STATIC_FILES true
 COPY Gemfile* /tmp/
 WORKDIR /tmp
 RUN gem install bundler \
-    && bundle install --without development test --jobs 20 --retry 5
+    && bundle config set without 'development test' \
+    && bundle install --jobs 20 --retry 5
 
 # Add app code
 ENV app /atlas
@@ -32,10 +33,11 @@ WORKDIR $app
 COPY . $app
 
 # Add container startup commands file
-COPY .docker/development/docker-entrypoint.sh /usr/bin/
+COPY .docker/production/docker-entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
+# Precompile assets
 RUN bundle exec rake assets:precompile
 
 # Specify app port
