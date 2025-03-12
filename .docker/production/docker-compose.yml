@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    ports:
+      - 3307:3306
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+
+  atlas:
+    container_name: atlas
+    image: ceeyweb/atlas:${VERSION:-latest}
+    env_file:
+      - ./env/application
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    restart: always
+    volumes:
+      - ./log:/atlas/log
+
+volumes:
+  db-data:
